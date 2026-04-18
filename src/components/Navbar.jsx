@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
 
 const NAV_ITEMS = [
   { label: 'Home', id: 'home' },
@@ -42,68 +41,51 @@ export default function Navbar() {
   };
 
   return (
-    <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-        <div className="nav-logo" onClick={() => scrollTo('home')}>
-          <img
-            src="/images/hackhere-logo.jpeg"
-            alt="HackHere"
-            className="nav-logo-img"
-            onError={(e) => {
-              e.target.style.display = 'none';
-              if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'inline';
-            }}
-          />
-          <span className="nav-logo-fallback" style={{ display: 'none' }}>
-            HACK<span className="accent">HERE</span>
-          </span>
-        </div>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="nav-logo" onClick={() => scrollTo('home')}>
+        <img
+          src="/images/hackhere-logo.jpeg"
+          alt="HackHere"
+          className="nav-logo-img"
+          onError={(e) => {
+            e.target.style.display = 'none';
+            if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'inline';
+          }}
+        />
+        <span className="nav-logo-fallback" style={{ display: 'none' }}>
+          HACK<span className="accent">HERE</span>
+        </span>
+      </div>
 
-        <ul className="nav-links">
-          {NAV_ITEMS.map((item) => (
-            <li key={item.id}>
-              <a
-                className={activeSection === item.id ? 'active' : ''}
-                onClick={(e) => { e.preventDefault(); scrollTo(item.id); }}
-                href={`#${item.id}`}
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
+      <ul className={`nav-links ${mobileOpen ? 'open' : ''}`}>
+        {NAV_ITEMS.map((item) => (
+          <li key={item.id}>
+            <a
+              className={activeSection === item.id ? 'active' : ''}
+              onClick={(e) => { e.preventDefault(); scrollTo(item.id); }}
+              href={`#${item.id}`}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
-        <button
-          className="mobile-menu-btn"
-          onClick={() => setMobileOpen(true)}
-          aria-label="Open menu"
-        >
-          <span /><span /><span />
-        </button>
-      </nav>
-
-      {/* Mobile Nav Overlay */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            className="mobile-nav open"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-          >
-            <button className="mobile-nav-close" onClick={() => setMobileOpen(false)}>✕</button>
-            {NAV_ITEMS.map((item) => (
-              <a
-                key={item.id}
-                onClick={(e) => { e.preventDefault(); scrollTo(item.id); }}
-                href={`#${item.id}`}
-              >
-                {item.label}
-              </a>
-            ))}
-          </motion.div>
+      <button
+        className="mobile-menu-btn"
+        onClick={() => setMobileOpen(prev => !prev)}
+        aria-label="Toggle menu"
+      >
+        {mobileOpen ? (
+          <>
+            <span style={{ transform: 'rotate(45deg) translate(5px, 5px)' }} />
+            <span style={{ opacity: 0 }} />
+            <span style={{ transform: 'rotate(-45deg) translate(5px, -5px)' }} />
+          </>
+        ) : (
+          <><span /><span /><span /></>
         )}
-      </AnimatePresence>
-    </>
+      </button>
+    </nav>
   );
 }

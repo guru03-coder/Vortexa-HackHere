@@ -1,0 +1,321 @@
+/* ═══════════════════════════════════════════
+   MOBILE RESPONSIVE — AIVENTRA 2026
+   All rules scoped inside max-width media queries.
+   Desktop layout is completely unchanged.
+   ═══════════════════════════════════════════ */
+
+/* ─── Tablet & below (≤ 768px) ─────────────── */
+@media (max-width: 768px) {
+
+  /* ── Cursors: hide the 3D earth on touch screens ── */
+  .earth-cursor,
+  .earth-cursor-trail {
+    display: none !important;
+  }
+
+  *, *::before, *::after {
+    cursor: auto !important;
+  }
+
+  /* ── Navbar ── */
+  .navbar {
+    padding: 0 20px;
+    height: 60px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(5, 5, 8, 0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 24px 20px;
+    gap: 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    z-index: 999;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .nav-team {
+    display: none;
+  }
+
+  /* ── Section base ── */
+  .section {
+    padding: 60px 20px !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.6rem, 7vw, 2.4rem) !important;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem !important;
+    margin-bottom: 40px !important;
+  }
+
+  /* ── Hero ── */
+  .hero {
+    padding: 1.2rem !important;
+  }
+
+  .hero-presents {
+    font-size: 0.7rem !important;
+    letter-spacing: 4px;
+  }
+
+  .hero-title {
+    font-size: clamp(3rem, 16vw, 5rem) !important;
+  }
+
+  .hero-title-reflection {
+    font-size: clamp(3rem, 16vw, 5rem) !important;
+  }
+
+  .hero-tagline {
+    font-size: 0.95rem !important;
+    letter-spacing: 1px;
+  }
+
+  .hero-subtext {
+    font-size: 0.85rem !important;
+  }
+
+  .hero-countdown {
+    gap: 12px !important;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .countdown-item-3d {
+    padding: 14px 16px !important;
+    min-width: 64px;
+  }
+
+  .countdown-value {
+    font-size: 1.8rem !important;
+  }
+
+  .countdown-label {
+    font-size: 0.6rem !important;
+  }
+
+  .btn-register-glow {
+    font-size: 0.9rem !important;
+    padding: 14px 30px !important;
+  }
+
+  /* ── About grid ── */
+  .about-grid {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+  }
+
+  .about-card {
+    padding: 28px 20px !important;
+  }
+
+  /* ── Mission Parameters (planetary layout) ── */
+  .planet-plus-layout {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center;
+    gap: 20px;
+    position: relative !important;
+  }
+
+  .planet-pos {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+  }
+
+  .planet-center-fixed {
+    position: relative !important;
+    top: auto !important;
+    left: auto !important;
+    transform: none !important;
+    width: 150px !important;
+    height: 150px !important;
+    margin: 10px auto;
+  }
+
+  .planet-card {
+    min-width: unset !important;
+    width: 200px;
+    padding: 14px 16px !important;
+  }
+
+  .plus-line-v,
+  .plus-line-h {
+    display: none;
+  }
+
+  /* ── Journey / Hackathon Flow ── */
+  .journey-rounds {
+    gap: 30px;
+  }
+
+  .flow-container {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .flow-connector {
+    width: 2px !important;
+    height: 40px !important;
+    background: linear-gradient(180deg, var(--neon-cyan), var(--neon-purple)) !important;
+  }
+
+  .flow-step {
+    min-width: unset !important;
+    max-width: 90vw !important;
+    width: 100%;
+  }
+
+  /* ── Challenge grid ── */
+  .challenges-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 16px;
+  }
+
+  .challenge-card {
+    padding: 24px 16px !important;
+  }
+
+  /* ── Sponsors (single row → wrap) ── */
+  .sponsors-orbit.sponsors-single-line {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 16px !important;
+  }
+
+  .sponsor-card {
+    min-width: 130px !important;
+    max-width: 140px !important;
+    padding: 16px !important;
+  }
+
+  /* ── Juries grid ── */
+  #juries > div {
+    grid-template-columns: 1fr !important;
+    gap: 20px;
+    max-width: 340px !important;
+  }
+
+  /* ── Team Section — zigzag stack ── */
+  .team-zigzag {
+    gap: 60px !important;
+  }
+
+  .team-member-row {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 24px !important;
+  }
+
+  /* Always show photo on top for mobile */
+  .team-member-row.photo-right {
+    flex-direction: column !important;
+  }
+
+  .team-photo-col {
+    flex: none !important;
+    width: 100%;
+    order: 0 !important;
+  }
+
+  .team-info-col {
+    flex: none !important;
+    width: 100%;
+    order: 1 !important;
+  }
+
+  .team-photo-card {
+    width: 200px !important;
+    height: 260px !important;
+  }
+
+  .team-info-panel {
+    padding: 24px 20px !important;
+  }
+
+  /* ── Prizes ── */
+  .prize-central {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  /* ── Footer ── */
+  .footer-content {
+    flex-direction: column !important;
+    align-items: center;
+    gap: 20px;
+    text-align: center;
+  }
+
+  /* ── Floating cards (hero decoration): hide on mobile ── */
+  .floating-card {
+    display: none !important;
+  }
+
+  /* ── Rocket effect: scale down on small screens ── */
+  .rocket-svg {
+    width: 40px !important;
+    height: 40px !important;
+  }
+}
+
+/* ─── Small mobile (≤ 480px) ──────────────── */
+@media (max-width: 480px) {
+
+  .hero-title {
+    font-size: clamp(2.6rem, 18vw, 4rem) !important;
+  }
+
+  .hero-countdown {
+    gap: 8px !important;
+  }
+
+  .countdown-item-3d {
+    padding: 10px 12px !important;
+    min-width: 56px;
+  }
+
+  .countdown-value {
+    font-size: 1.5rem !important;
+  }
+
+  .challenges-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .planet-card {
+    width: 180px !important;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 8vw, 2rem) !important;
+  }
+}
