@@ -1,13 +1,7 @@
 import { motion } from 'framer-motion';
 
 const sponsors = [
-  {
-    name: 'PWC',
-    role: 'Brand Partner',
-    logo: (
-      <img src="/images/sponsors/logo_pwc.png" alt="PWC" style={{ height: '40px', objectFit: 'contain' }} />
-    ),
-  },
+
   {
     name: 'Journi',
     role: 'Travel Partner',
@@ -71,21 +65,25 @@ export default function SponsorsSection() {
         The forces that make this mission possible
       </motion.p>
 
-      <div className="sponsors-orbit sponsors-single-line">
+      <div style={{
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'stretch',
+        flexWrap: 'wrap',
+        gap: '2rem',
+        maxWidth: '900px',
+        margin: '0 auto',
+      }}>
         {sponsors.map((s, i) => (
           <motion.div
             key={i}
             className="glass-card sponsor-card"
+            style={{ flex: '1 1 180px', maxWidth: '200px', minWidth: '160px' }}
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            animate={{
-              y: [0, -12, 0],
-            }}
-            whileHover={{
-              scale: 1.06,
-              borderColor: 'rgba(0, 240, 255, 0.3)',
-            }}
+            animate={{ y: [0, -12, 0] }}
+            whileHover={{ scale: 1.06, borderColor: 'rgba(0, 240, 255, 0.3)' }}
             transition={{
               delay: i * 0.15,
               y: { duration: 4 + i, repeat: Infinity, ease: 'easeInOut' },
