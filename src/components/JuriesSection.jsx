@@ -15,8 +15,8 @@ const juriesData = [
   },
   {
     name: "Yuva Sri",
-    role: "Software developer",
-    company: "Interned in ZOHO placed in PWC",
+    role: "Software developer | PWC",
+    company: "Intern | Zoho",
     image: "/images/yuvasri.jpeg"
   }
 ];
@@ -67,7 +67,7 @@ export default function JuriesSection() {
               </div>
             )}
             <h3 style={{ marginBottom: '0.5rem', color: jury.name === "To be announced" ? 'rgba(255,255,255,0.5)' : '#fff' }}>{jury.name}</h3>
-            <p style={{ color: 'rgba(255,255,255,0.3)', fontSize: '0.9rem', marginBottom: jury.company ? '0.5rem' : '0' }}>{jury.role}</p>
+            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', marginBottom: jury.company ? '0.4rem' : '0' }}>{jury.role}</p>
             {jury.company && <p style={{ color: 'rgba(0, 240, 255, 0.8)', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>{jury.company}</p>}
           </motion.div>
         ))}
