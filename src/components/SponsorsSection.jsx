@@ -2,21 +2,18 @@ import { motion } from 'framer-motion';
 
 const sponsors = [
   {
-    name: 'Zoho',
-    role: '',
+    name: 'PWC',
+    role: 'Brand Partner',
     logo: (
-      <svg viewBox="0 0 120 40" width="100" height="34" fill="none">
-        <text x="10" y="30" fontFamily="'Orbitron', sans-serif" fontSize="28" fontWeight="900" fill="#E42527">Z</text>
-        <text x="32" y="30" fontFamily="'Orbitron', sans-serif" fontSize="28" fontWeight="900" fill="#FDB913">o</text>
-        <text x="56" y="30" fontFamily="'Orbitron', sans-serif" fontSize="28" fontWeight="900" fill="#1B9F4A">h</text>
-        <text x="80" y="30" fontFamily="'Orbitron', sans-serif" fontSize="28" fontWeight="900" fill="#2B7FC0">o</text>
-      </svg>
+      <img src="/images/sponsors/logo_pwc.png" alt="PWC" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
   {
     name: 'Journi',
     role: 'Travel Partner',
-    logo: <span style={{ fontSize: '2.5rem' }}>✈️</span>,
+    logo: (
+      <img src="/images/sponsors/journi.jpeg" alt="Journi" style={{ height: '40px', objectFit: 'contain' }} />
+    ),
   },
   {
     name: 'StartupTN',
@@ -39,12 +36,16 @@ const sponsors = [
   {
     name: 'Elyon Clothing',
     role: 'Merchandise Partner',
-    logo: <span style={{ fontSize: '2.5rem' }}>👕</span>,
+    logo: (
+      <img src="/images/sponsors/elyon.jpeg" alt="Elyon Clothing" style={{ height: '40px', objectFit: 'contain' }} />
+    ),
   },
   {
     name: 'Wyntrix',
     role: 'Internship Partner',
-    logo: <span style={{ fontSize: '2.5rem' }}>💼</span>,
+    logo: (
+      <img src="/images/sponsors/wyntrix.jpeg" alt="Wyntrix" style={{ height: '40px', objectFit: 'contain' }} />
+    ),
   },
 ];
 
@@ -93,8 +94,8 @@ export default function SponsorsSection() {
             <div style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               {s.logo}
             </div>
-            <h3>{s.name}</h3>
-            {s.role && <span>{s.role}</span>}
+            <h3 style={{ textAlign: 'center', marginBottom: '4px' }}>{s.name}</h3>
+            {s.role && <span style={{ textAlign: 'center', display: 'block', width: '100%', fontSize: '0.85rem' }}>{s.role}</span>}
           </motion.div>
         ))}
       </div>

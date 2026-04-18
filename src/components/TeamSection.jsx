@@ -22,7 +22,8 @@ const team = [
     color: '#a855f7',
     linkedin: 'https://www.linkedin.com/in/k-guru-prakash-9a4184337/',
     achievements: [
-      'AWS Cloud Club Core Lead & CCIC Captain',
+      'AWS Cloud club secretary',
+      'CCIC Club captain',
       'IEEE EMBS Society Core',
       'Participated & Won many Hackathons',
       'Full Stack Developer & Technical Lead',
@@ -45,7 +46,7 @@ const team = [
     name: 'SHUBAASHREE S',
     role: 'Outreach & Content Lead',
     photo: '/images/shubaashree.jpg.jpeg',
-    color: '#39ff14',
+    color: '#ff2244',
     linkedin: 'https://www.linkedin.com/in/shubaashreesureshbabu',
     achievements: [
       'Intern at CED (Anna Univ) & Zecurit',

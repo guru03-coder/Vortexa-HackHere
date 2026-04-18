@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 const orbitItems = [
-  { label: 'VENUE', value: 'Chennai', icon: '📍', color: '#00f0ff', position: 'top' },
-  { label: 'DATES', value: 'May 2–3', icon: '📅', color: '#a855f7', position: 'right' },
+  { label: 'VENUE', value: 'StartupTN, Nandanam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://www.google.com/maps/place/StartupTN/data=!4m2!3m1!1s0x0:0xec60c66c7d34f058?sa=X&ved=1t:2428&ictx=111&cshid=1776503725464821' },
+  { label: 'DATES', value: 'May 4–5', icon: '📅', color: '#a855f7', position: 'right' },
   { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: '#ec4899', position: 'bottom' },
   { label: 'MODE', value: 'Hybrid', icon: '🌐', color: '#3b82f6', position: 'left' },
 ];
@@ -86,11 +86,15 @@ export default function EventDetails() {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.7 }}
         >
-          <TiltCard color={orbitItems[0].color}>
-            <span className="planet-item-icon">{orbitItems[0].icon}</span>
-            <span className="planet-item-label">{orbitItems[0].label}</span>
-            <span className="planet-item-value" style={{ color: orbitItems[0].color }}>{orbitItems[0].value}</span>
-          </TiltCard>
+          <a href={orbitItems[0].link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
+            <TiltCard color={orbitItems[0].color}>
+              <span className="planet-item-icon">{orbitItems[0].icon}</span>
+              <span className="planet-item-label">{orbitItems[0].label}</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color }}>StartupTN</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.85em', opacity: 0.8 }}>Nandanam</span>
+              <span style={{ color: 'rgba(0,240,255,0.5)', fontSize: '0.7rem', marginTop: '4px', display: 'block' }}>📌 View on Maps</span>
+            </TiltCard>
+          </a>
         </motion.div>
 
         {/* Left Card */}

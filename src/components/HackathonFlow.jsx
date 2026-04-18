@@ -5,8 +5,8 @@ const rounds = [
     round: 'Round 1',
     title: 'Launch',
     subtitle: 'Open Innovation',
-    date: '17 Apr 26 – 26 Apr 26',
-    dateDetail: '12:00 AM IST → 11:59 PM IST',
+    date: '18 Apr 2026 – 26 Apr 2026',
+    dateDetail: '',
     steps: [
       {
         icon: '🚀',
@@ -20,7 +20,7 @@ const rounds = [
     round: 'Round 2',
     title: 'Build & Pitch',
     subtitle: 'Hackathon Day',
-    date: 'May 2–3, 2026',
+    date: 'May 4–5, 2026',
     dateDetail: '24-Hour Hackathon',
     steps: [
       {
@@ -82,7 +82,7 @@ export default function HackathonFlow() {
               <div className="round-badge">{round.round}</div>
               <div className="round-dates">
                 <span className="round-date">{round.date}</span>
-                <span className="round-date-detail">{round.dateDetail}</span>
+                {round.dateDetail && <span className="round-date-detail">{round.dateDetail}</span>}
               </div>
             </div>
 
