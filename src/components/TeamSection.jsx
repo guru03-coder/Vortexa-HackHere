@@ -51,7 +51,7 @@ const team = [
     achievements: [
       'Intern at CED (Anna Univ) & Zecurit',
       'Winner — Google Gen AI Hackathon',
-      'Lead — IEEE Education Society',
+      'Cyber club magic member',
       'Full Stack & Swift Developer',
     ],
   },
