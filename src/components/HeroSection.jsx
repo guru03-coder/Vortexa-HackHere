@@ -14,7 +14,7 @@ export default function HeroSection() {
   const gridOpacity = useTransform(scrollYProgress, [0, 0.4], [0.5, 0]);
 
   useEffect(() => {
-    const target = new Date('2026-05-04T09:00:00+05:30').getTime();
+    const target = new Date('2026-05-09T09:00:00+05:30').getTime();
     const tick = () => {
       const now = Date.now();
       const diff = Math.max(0, target - now);

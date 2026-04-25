@@ -3,7 +3,7 @@ import { useRef } from 'react';
 
 const orbitItems = [
   { label: 'VENUE', value: 'Intro Works, Nandambakkam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://www.google.com/maps/dir//Intro+Works,+No+1%2F2a,+Dharmambal+Palanippan+Complex,+First+Floor,+Mount+Poonamallee+Rd,+near+A2B+Restaturant,+Ramapuram,+Nandambakkam,+Chennai,+Tamil+Nadu+600089/@13.0102989,80.1855184,16.06z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a5267b38adfa399:0x6724527c851b9110!2m2!1d80.1920722!2d13.0145396?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D' },
-  { label: 'DATES', value: 'May 4–5', icon: '📅', color: '#a855f7', position: 'right' },
+  { label: 'DATES', value: 'May 9–10', icon: '📅', color: '#a855f7', position: 'right' },
   { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: '#ec4899', position: 'bottom' },
   { label: 'MODE', value: 'Hybrid', icon: '🌐', color: '#3b82f6', position: 'left' },
 ];

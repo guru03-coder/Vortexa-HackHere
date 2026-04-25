@@ -20,7 +20,7 @@ const rounds = [
     round: 'Round 2',
     title: 'Build & Pitch',
     subtitle: 'Hackathon Day',
-    date: 'May 4–5, 2026',
+    date: 'May 9–10, 2026',
     dateDetail: '24-Hour Hackathon',
     steps: [
       {
