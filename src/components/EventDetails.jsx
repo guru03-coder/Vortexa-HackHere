@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 const orbitItems = [
-  { label: 'VENUE', value: 'StartupTN, Nandanam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://www.google.com/maps/place/StartupTN/data=!4m2!3m1!1s0x0:0xec60c66c7d34f058?sa=X&ved=1t:2428&ictx=111&cshid=1776503725464821' },
+  { label: 'VENUE', value: 'Intro Works, Chennai Trade Centre, Nandambakkam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://share.google/JnSKhOHdNC35kzr6k' },
   { label: 'DATES', value: 'May 4–5', icon: '📅', color: '#a855f7', position: 'right' },
   { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: '#ec4899', position: 'bottom' },
   { label: 'MODE', value: 'Hybrid', icon: '🌐', color: '#3b82f6', position: 'left' },
@@ -90,8 +90,9 @@ export default function EventDetails() {
             <TiltCard color={orbitItems[0].color}>
               <span className="planet-item-icon">{orbitItems[0].icon}</span>
               <span className="planet-item-label">{orbitItems[0].label}</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color }}>StartupTN</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.85em', opacity: 0.8 }}>Nandanam</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.9em' }}>Intro Works</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.75em', opacity: 0.85 }}>Chennai Trade Centre</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.75em', opacity: 0.7 }}>Nandambakkam</span>
               <span style={{ color: 'rgba(0,240,255,0.5)', fontSize: '0.7rem', marginTop: '4px', display: 'block' }}>📌 View on Maps</span>
             </TiltCard>
           </a>
