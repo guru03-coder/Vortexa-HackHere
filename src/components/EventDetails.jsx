@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 const orbitItems = [
-  { label: 'VENUE', value: 'Intro Works, Chennai Trade Centre, Nandambakkam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://share.google/JnSKhOHdNC35kzr6k' },
+  { label: 'VENUE', value: 'Intro Works, Nandambakkam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://www.google.com/maps/dir//Intro+Works,+No+1%2F2a,+Dharmambal+Palanippan+Complex,+First+Floor,+Mount+Poonamallee+Rd,+near+A2B+Restaturant,+Ramapuram,+Nandambakkam,+Chennai,+Tamil+Nadu+600089/@13.0102989,80.1855184,16.06z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a5267b38adfa399:0x6724527c851b9110!2m2!1d80.1920722!2d13.0145396?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D' },
   { label: 'DATES', value: 'May 4–5', icon: '📅', color: '#a855f7', position: 'right' },
   { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: '#ec4899', position: 'bottom' },
   { label: 'MODE', value: 'Hybrid', icon: '🌐', color: '#3b82f6', position: 'left' },
@@ -90,9 +90,8 @@ export default function EventDetails() {
             <TiltCard color={orbitItems[0].color}>
               <span className="planet-item-icon">{orbitItems[0].icon}</span>
               <span className="planet-item-label">{orbitItems[0].label}</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.9em' }}>Intro Works</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.75em', opacity: 0.85 }}>Chennai Trade Centre</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.75em', opacity: 0.7 }}>Nandambakkam</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color }}>Intro Works</span>
+              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.85em', opacity: 0.8 }}>Nandambakkam</span>
               <span style={{ color: 'rgba(0,240,255,0.5)', fontSize: '0.7rem', marginTop: '4px', display: 'block' }}>📌 View on Maps</span>
             </TiltCard>
           </a>
