@@ -10,21 +10,10 @@ const sponsors = [
     ),
   },
   {
-    name: 'StartupTN',
+    name: 'FeatherlessAI',
     role: 'Venue Partner',
     logo: (
-      <>
-        <img 
-          src="/images/sponsors/startuptn.jpeg" 
-          alt="StartupTN" 
-          style={{ height: '40px', objectFit: 'contain' }} 
-          onError={(e) => {
-            e.target.style.display = 'none';
-            if (e.target.nextElementSibling) e.target.nextElementSibling.style.display = 'block';
-          }} 
-        />
-        <span style={{ display: 'none', fontSize: '1.2rem', fontWeight: 'bold' }}>StartupTN</span>
-      </>
+      <img src="/images/sponsors/featherlessai.jpeg" alt="FeatherlessAI" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
   {
