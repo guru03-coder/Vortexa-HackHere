@@ -35,10 +35,10 @@ const sponsors = [
     ),
   },
   {
-    name: 'Wyntrix',
+    name: 'Maestrominds',
     role: 'Internship Partner',
     logo: (
-      <img src="/images/sponsors/wyntrix.jpeg" alt="Wyntrix" style={{ height: '40px', objectFit: 'contain' }} />
+      <img src="/images/sponsors/maestrominds.png" alt="Maestrominds" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
 ];
