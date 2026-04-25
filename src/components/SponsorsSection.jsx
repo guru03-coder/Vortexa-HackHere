@@ -41,6 +41,13 @@ const sponsors = [
       <img src="/images/sponsors/maestrominds.png" alt="Maestrominds" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
+  {
+    name: 'MeDo',
+    role: 'Powered By',
+    logo: (
+      <img src="/images/sponsors/medo.png" alt="MeDo" style={{ height: '40px', objectFit: 'contain' }} />
+    ),
+  },
 ];
 
 export default function SponsorsSection() {
