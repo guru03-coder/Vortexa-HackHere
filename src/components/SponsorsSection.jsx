@@ -4,35 +4,35 @@ const sponsors = [
 
   {
     name: 'Journi',
-    role: 'Travel Partner',
+    role: 'Official Sponsor',
     logo: (
       <img src="/images/sponsors/journi.jpeg" alt="Journi" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
   {
     name: 'FeatherlessAI',
-    role: 'Venue Partner',
+    role: 'Powered By',
     logo: (
       <img src="/images/sponsors/featherlessai.jpeg" alt="FeatherlessAI" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
   {
     name: 'Elyon Clothing',
-    role: 'Merchandise Partner',
+    role: 'Powered By',
     logo: (
       <img src="/images/sponsors/elyon.jpeg" alt="Elyon Clothing" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
   {
     name: 'Maestrominds',
-    role: 'Internship Partner',
+    role: 'Powered By',
     logo: (
       <img src="/images/sponsors/maestrominds.png" alt="Maestrominds" style={{ height: '40px', objectFit: 'contain' }} />
     ),
   },
   {
     name: 'MeDo',
-    role: 'Powered By',
+    role: 'Official Sponsor',
     logo: (
       <div style={{ background: '#ffffff', borderRadius: '10px', padding: '6px 10px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
         <img src="/images/sponsors/medo.png" alt="MeDo" style={{ height: '32px', objectFit: 'contain' }} />
