@@ -45,7 +45,9 @@ const sponsors = [
     name: 'MeDo',
     role: 'Powered By',
     logo: (
-      <img src="/images/sponsors/medo.png" alt="MeDo" style={{ height: '40px', objectFit: 'contain' }} />
+      <div style={{ background: '#ffffff', borderRadius: '10px', padding: '6px 10px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
+        <img src="/images/sponsors/medo.png" alt="MeDo" style={{ height: '32px', objectFit: 'contain' }} />
+      </div>
     ),
   },
 ];
