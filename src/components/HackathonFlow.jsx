@@ -5,7 +5,7 @@ const rounds = [
     round: 'Round 1',
     title: 'Launch',
     subtitle: 'Open Innovation',
-    date: '18 Apr 2026 – 26 Apr 2026',
+    date: '18 Apr 2026 – 3 May 2026',
     dateDetail: '',
     steps: [
       {
