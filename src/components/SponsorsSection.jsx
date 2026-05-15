@@ -5,7 +5,7 @@ const sponsors = [
     name: 'Journi',
     role: 'Official Sponsor',
     logo: (
-      <img src="/images/sponsors/journi.jpeg" alt="Journi" style={{ height: '52px', objectFit: 'contain' }} />
+      <img src="/images/sponsors/jorni.jpeg" alt="Journi" style={{ height: '52px', objectFit: 'contain' }} />
     ),
   },
   {
