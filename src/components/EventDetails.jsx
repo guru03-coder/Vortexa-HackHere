@@ -1,171 +1,73 @@
 import { motion } from 'framer-motion';
-import { useRef } from 'react';
 
-const orbitItems = [
-  { label: 'VENUE', value: 'Intro Works, Nandambakkam', icon: '📍', color: '#00f0ff', position: 'top', link: 'https://www.google.com/maps/dir//Intro+Works,+No+1%2F2a,+Dharmambal+Palanippan+Complex,+First+Floor,+Mount+Poonamallee+Rd,+near+A2B+Restaturant,+Ramapuram,+Nandambakkam,+Chennai,+Tamil+Nadu+600089/@13.0102989,80.1855184,16.06z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a5267b38adfa399:0x6724527c851b9110!2m2!1d80.1920722!2d13.0145396?entry=ttu&g_ep=EgoyMDI2MDQyMS4wIKXMDSoASAFQAw%3D%3D' },
-  { label: 'DATES', value: 'May 9–10', icon: '📅', color: '#a855f7', position: 'right' },
-  { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: '#ec4899', position: 'bottom' },
-  { label: 'MODE', value: 'Hybrid', icon: '🌐', color: '#3b82f6', position: 'left' },
+const details = [
+  { label: 'VENUE', value: 'Intro Works, Nandambakkam', icon: '📍', color: 'var(--neon-cyan)', link: 'https://www.google.com/maps/dir//Intro+Works,+No+1%2F2a,+Dharmambal+Palanippan+Complex,+First+Floor,+Mount+Poonamallee+Rd,+near+A2B+Restaturant,+Ramapuram,+Nandambakkam,+Chennai,+Tamil+Nadu+600089/@13.0102989,80.1855184,16.06z' },
+  { label: 'DATES', value: 'June 20–21, 2026', icon: '📅', color: 'var(--neon-magenta)' },
+  { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: 'var(--neon-blue)' },
+  { label: 'MODE', value: 'Offline', icon: '🌐', color: 'var(--text-main)' },
 ];
-
-const prizePool = {
-  label: 'PRIZE POOL',
-  value: '₹1,00,000',
-  icon: '💰',
-};
-
-function TiltCard({ children, color }) {
-  const cardRef = useRef(null);
-
-  const handleMouse = (e) => {
-    const card = cardRef.current;
-    if (!card) return;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    const rotateX = (y - centerY) / 10;
-    const rotateY = (centerX - x) / 10;
-    card.style.transform = `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-4px)`;
-  };
-
-  const handleLeave = () => {
-    const card = cardRef.current;
-    if (card) card.style.transform = 'perspective(600px) rotateX(0) rotateY(0) translateY(0)';
-  };
-
-  return (
-    <div
-      ref={cardRef}
-      className="glass-card planet-card"
-      onMouseMove={handleMouse}
-      onMouseLeave={handleLeave}
-      style={{ transition: 'transform 0.2s ease-out', borderTop: `2px solid ${color}30` }}
-    >
-      {children}
-    </div>
-  );
-}
 
 export default function EventDetails() {
   return (
-    <section id="event-details" className="section">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        MISSION <span className="accent">PARAMETERS</span>
-      </motion.h2>
-      <motion.p
-        className="section-subtitle"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        Everything you need to know about the mission
-      </motion.p>
-
-      {/* Plus Formation Layout */}
-      <motion.div
-        className="planet-plus-layout"
-        initial={{ opacity: 0, scale: 0.7 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-      >
-        {/* Top Card */}
-        <motion.div
-          className="planet-pos planet-pos-top"
-          initial={{ opacity: 0, y: -40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3, duration: 0.7 }}
-        >
-          <a href={orbitItems[0].link} target="_blank" rel="noopener noreferrer" style={{ textDecoration: 'none', display: 'block' }}>
-            <TiltCard color={orbitItems[0].color}>
-              <span className="planet-item-icon">{orbitItems[0].icon}</span>
-              <span className="planet-item-label">{orbitItems[0].label}</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color }}>Intro Works</span>
-              <span className="planet-item-value" style={{ color: orbitItems[0].color, fontSize: '0.85em', opacity: 0.8 }}>Nandambakkam</span>
-              <span style={{ color: 'rgba(0,240,255,0.5)', fontSize: '0.7rem', marginTop: '4px', display: 'block' }}>📌 View on Maps</span>
-            </TiltCard>
-          </a>
-        </motion.div>
-
-        {/* Left Card */}
-        <motion.div
-          className="planet-pos planet-pos-left"
-          initial={{ opacity: 0, x: -40 }}
+    <section id="event-details" className="event-section">
+      <div className="event-container">
+        
+        <motion.div 
+          className="event-header"
+          initial={{ opacity: 0, x: -50 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.6, duration: 0.7 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
         >
-          <TiltCard color={orbitItems[3].color}>
-            <span className="planet-item-icon">{orbitItems[3].icon}</span>
-            <span className="planet-item-label">{orbitItems[3].label}</span>
-            <span className="planet-item-value" style={{ color: orbitItems[3].color }}>{orbitItems[3].value}</span>
-          </TiltCard>
+          <h2 className="section-title-huge">
+            MISSION<br />
+            <span className="stroke-text">DATA</span>
+          </h2>
         </motion.div>
 
-        {/* Center Planet — Prize Pool */}
-        <motion.div
-          className="planet-center-fixed"
-          animate={{
-            boxShadow: [
-              '0 0 50px rgba(245,158,11,0.3), 0 0 100px rgba(245,158,11,0.1), inset -10px -10px 30px rgba(0,0,0,0.3)',
-              '0 0 70px rgba(245,158,11,0.5), 0 0 140px rgba(245,158,11,0.15), inset -10px -10px 30px rgba(0,0,0,0.3)',
-              '0 0 50px rgba(245,158,11,0.3), 0 0 100px rgba(245,158,11,0.1), inset -10px -10px 30px rgba(0,0,0,0.3)',
-            ]
-          }}
-          transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut' }}
-          whileHover={{ scale: 1.08 }}
-        >
-          <span className="planet-icon">{prizePool.icon}</span>
-          <span className="planet-label">{prizePool.label}</span>
-          <span className="planet-value">{prizePool.value}</span>
-          <div className="planet-surface" />
-          <div className="planet-highlight" />
-        </motion.div>
+        <div className="event-data-list">
+          {details.map((item, index) => (
+            <motion.div 
+              key={item.label}
+              className="event-data-item"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ x: -10, backgroundColor: 'rgba(0, 240, 255, 0.05)' }}
+            >
+              <div className="data-icon" style={{ color: item.color }}>{item.icon}</div>
+              <div className="data-content">
+                <div className="data-label">{item.label}</div>
+                {item.link ? (
+                  <a href={item.link} target="_blank" rel="noopener noreferrer" className="data-value link" style={{ color: item.color }}>
+                    {item.value} <span style={{ fontSize: '0.8rem' }}>↗</span>
+                  </a>
+                ) : (
+                  <div className="data-value" style={{ color: item.color }}>{item.value}</div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+          
+          {/* Prize Pool */}
+          <motion.div 
+            className="event-data-item prize-item"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <div className="data-icon">🏆</div>
+            <div className="data-content">
+              <div className="data-label">PRIZE POOL</div>
+              <div className="data-value prize-value">₹1,00,000</div>
+            </div>
+          </motion.div>
 
-        {/* Right Card */}
-        <motion.div
-          className="planet-pos planet-pos-right"
-          initial={{ opacity: 0, x: 40 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.45, duration: 0.7 }}
-        >
-          <TiltCard color={orbitItems[1].color}>
-            <span className="planet-item-icon">{orbitItems[1].icon}</span>
-            <span className="planet-item-label">{orbitItems[1].label}</span>
-            <span className="planet-item-value" style={{ color: orbitItems[1].color }}>{orbitItems[1].value}</span>
-          </TiltCard>
-        </motion.div>
+        </div>
 
-        {/* Bottom Card */}
-        <motion.div
-          className="planet-pos planet-pos-bottom"
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.75, duration: 0.7 }}
-        >
-          <TiltCard color={orbitItems[2].color}>
-            <span className="planet-item-icon">{orbitItems[2].icon}</span>
-            <span className="planet-item-label">{orbitItems[2].label}</span>
-            <span className="planet-item-value" style={{ color: orbitItems[2].color }}>{orbitItems[2].value}</span>
-          </TiltCard>
-        </motion.div>
-
-        {/* Connector Lines */}
-        <div className="plus-line plus-line-v" />
-        <div className="plus-line plus-line-h" />
-      </motion.div>
+      </div>
     </section>
   );
 }

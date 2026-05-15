@@ -13,7 +13,6 @@ import WhyJoinSection from './components/WhyJoinSection';
 import ExperienceZone from './components/ExperienceZone';
 import TeamSection from './components/TeamSection';
 import FinalCTA from './components/FinalCTA';
-import RocketEffect from './components/RocketEffect';
 import SplashScreen from './components/SplashScreen';
 import JuriesSection from './components/JuriesSection';
 
@@ -52,7 +51,19 @@ export default function App() {
       {/* Scroll Progress Bar */}
       <div className="scroll-progress" style={{ width: `${scrollProgress}%` }} />
 
-      {/* 3D Earth Cursor */}
+      {/* Fixed Infinite Vortex Video Background */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="global-video-bg"
+      >
+        <source src="/videos/vortex.mp4" type="video/mp4" />
+      </video>
+      <div className="global-video-overlay" />
+
+      {/* 3D Earth Cursor (Kept as requested or implicit in skeleton) */}
       <div
         className="earth-cursor"
         style={{ left: cursorPos.x, top: cursorPos.y }}
@@ -61,12 +72,6 @@ export default function App() {
         className="earth-cursor-trail"
         style={{ left: cursorPos.x, top: cursorPos.y }}
       />
-
-      {/* 3D Rocket Effect */}
-      <RocketEffect />
-
-      {/* Starfield Background */}
-      <StarField />
 
       {/* Navigation */}
       <Navbar />
@@ -106,7 +111,7 @@ export default function App() {
               </a>
             </div>
             <p className="footer-text">
-              © 2026 <span className="accent">Hackhere</span> | AIventra Hackathon — CODE. BUILD. GET HIRED.
+              © 2026 <span className="accent">Hackhere</span> | VORTEXA Hackathon — INNOVATE. ITERATE. CREATE THE VORTEX.
             </p>
           </div>
         </footer>

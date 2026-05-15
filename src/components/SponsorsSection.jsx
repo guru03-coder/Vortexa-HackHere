@@ -1,25 +1,13 @@
 import { motion } from 'framer-motion';
 
-const officialSponsors = [
-  {
-    name: 'MeDo',
-    role: 'Official Sponsor',
-    logo: (
-      <div style={{ background: '#ffffff', borderRadius: '10px', padding: '6px 10px', display: 'inline-flex', alignItems: 'center', justifyContent: 'center' }}>
-        <img src="/images/sponsors/medo.png" alt="MeDo" style={{ height: '32px', objectFit: 'contain' }} />
-      </div>
-    ),
-  },
+const sponsors = [
   {
     name: 'Journi',
     role: 'Official Sponsor',
     logo: (
-      <img src="/images/sponsors/journi.jpeg" alt="Journi" style={{ height: '40px', objectFit: 'contain' }} />
+      <img src="/images/sponsors/journi.jpeg" alt="Journi" style={{ height: '52px', objectFit: 'contain' }} />
     ),
   },
-];
-
-const poweredBy = [
   {
     name: 'Elyon Clothing',
     role: 'Powered By',
@@ -28,17 +16,17 @@ const poweredBy = [
     ),
   },
   {
-    name: 'Maestrominds',
-    role: 'Powered By',
+    name: 'Cristel',
+    role: 'Intern Sponsor',
     logo: (
-      <img src="/images/sponsors/maestrominds.png" alt="Maestrominds" style={{ height: '40px', objectFit: 'contain' }} />
+      <img src="/images/sponsors/intern1.jpeg" alt="Cristel" style={{ height: '52px', objectFit: 'contain', borderRadius: '4px' }} />
     ),
   },
   {
-    name: 'FeatherlessAI',
-    role: 'Powered By',
+    name: 'Balvion Tech',
+    role: 'Intern Sponsor',
     logo: (
-      <img src="/images/sponsors/featherlessai.jpeg" alt="FeatherlessAI" style={{ height: '40px', objectFit: 'contain' }} />
+      <img src="/images/sponsors/intern 2.jpeg" alt="Balvion Tech" style={{ height: '52px', objectFit: 'contain', borderRadius: '4px' }} />
     ),
   },
 ];
@@ -46,77 +34,47 @@ const poweredBy = [
 function SponsorCard({ s, i }) {
   return (
     <motion.div
-      className="glass-card sponsor-card"
-      style={{ flex: '1 1 180px', maxWidth: '200px', minWidth: '160px' }}
-      initial={{ opacity: 0, scale: 0.8 }}
-      whileInView={{ opacity: 1, scale: 1 }}
+      className="sponsor-item"
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      animate={{ y: [0, -12, 0] }}
-      whileHover={{ scale: 1.06, borderColor: 'rgba(0, 240, 255, 0.3)' }}
-      transition={{
-        delay: i * 0.15,
-        y: { duration: 4 + i, repeat: Infinity, ease: 'easeInOut' },
-      }}
+      transition={{ delay: i * 0.1 }}
     >
-      <div style={{ marginBottom: 10, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <div className="sponsor-logo-box">
         {s.logo}
       </div>
-      <h3 style={{ textAlign: 'center', marginBottom: '4px' }}>{s.name}</h3>
-      {s.role && <span style={{ textAlign: 'center', display: 'block', width: '100%', fontSize: '0.85rem' }}>{s.role}</span>}
+      <h3 className="sponsor-name">{s.name}</h3>
+      {s.role && <span className="sponsor-role">{s.role}</span>}
     </motion.div>
   );
 }
 
-const rowLabel = (text) => (
-  <div style={{
-    width: '100%',
-    textAlign: 'center',
-    fontSize: '0.7rem',
-    fontWeight: '700',
-    letterSpacing: '3px',
-    textTransform: 'uppercase',
-    color: 'rgba(255,255,255,0.35)',
-    marginBottom: '1rem',
-    marginTop: '0.5rem',
-  }}>
-    — {text} —
-  </div>
-);
-
 export default function SponsorsSection() {
   return (
-    <section id="sponsors" className="section">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        SPACE <span className="accent">DOCK</span> PARTNERS
-      </motion.h2>
-      <motion.p
-        className="section-subtitle"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        The forces that make this mission possible
-      </motion.p>
+    <section id="sponsors" className="about-section">
+      <div className="about-container">
+        
+        <motion.div 
+          className="about-header"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="section-title-huge">
+            <span className="stroke-text">OUR</span><br />
+            SPONSORS
+          </h2>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>THE FORCES THAT MAKE THIS MISSION POSSIBLE</p>
+        </motion.div>
 
-      <div style={{ maxWidth: '860px', margin: '0 auto', display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.5rem' }}>
-
-        {/* Official Sponsors Row */}
-        {rowLabel('Official Sponsors')}
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem', width: '100%', marginBottom: '1.5rem' }}>
-          {officialSponsors.map((s, i) => <SponsorCard key={i} s={s} i={i} />)}
-        </div>
-
-        {/* Powered By Row */}
-        {rowLabel('Powered By')}
-        <div style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', gap: '2rem', width: '100%' }}>
-          {poweredBy.map((s, i) => <SponsorCard key={i} s={s} i={i + 2} />)}
+        <div className="sponsors-content">
+          <div className="sponsor-tier">
+            <h3 className="tier-title"><span className="bullet"></span>PARTNERS</h3>
+            <div className="sponsor-grid">
+              {sponsors.map((s, i) => <SponsorCard key={i} s={s} i={i} />)}
+            </div>
+          </div>
         </div>
 
       </div>

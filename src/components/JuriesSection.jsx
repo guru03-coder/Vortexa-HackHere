@@ -2,19 +2,19 @@ import { motion } from 'framer-motion';
 
 const juriesData = [
   {
-    name: "Antony",
+    name: "ANTONY",
     role: "Interned in Prism Software Solutions",
     company: "placed in Chris Byte Solutions Private Limited",
     image: "/images/antony.jpeg"
   },
   {
-    name: "Gokul",
+    name: "GOKUL",
     role: "Executive HR",
     company: "Cognizant",
     image: "/images/gokul.jpeg"
   },
   {
-    name: "Yuva Sri",
+    name: "YUVA SRI",
     role: "Software developer | PWC",
     company: "Intern | Zoho",
     image: "/images/yuvasri.jpeg"
@@ -23,64 +23,60 @@ const juriesData = [
 
 export default function JuriesSection() {
   return (
-    <section id="juries" className="section">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        OUR <span className="accent">CHIEF GUEST</span> <span style={{ color: '#ffffff' }}>AND</span> <span className="accent">JURIES</span>
-      </motion.h2>
-      <motion.p
-        className="section-subtitle"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        The experts who will evaluate your mission
-      </motion.p>
+    <section id="juries" className="about-section">
+      <div className="about-container">
+        
+        <motion.div 
+          className="about-header"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="section-title-huge">
+            <span className="stroke-text">GUESTS</span><br />
+            & JURIES
+          </h2>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>THE EXPERTS WHO WILL EVALUATE YOUR MISSION</p>
+          
+          <button 
+            className="hero-cta"
+            style={{ marginTop: '40px' }}
+            onClick={() => window.open('https://unstop.com/p/aiventra-hackhere-1676309', '_blank')}
+          >
+            APPLY AS JURY <span className="arrow">→</span>
+          </button>
+        </motion.div>
 
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '2rem', maxWidth: '1000px', margin: '0 auto', padding: '1rem' }}>
-        {juriesData.map((jury, i) => (
-          <motion.div
-            key={i}
-            className="glass-card"
-            style={{ padding: '3rem 2rem', textAlign: 'center', minHeight: '300px', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15, duration: 0.5 }}
-            whileHover={{ scale: 1.05, borderColor: 'rgba(0, 240, 255, 0.3)' }}
-          >
-            {jury.image ? (
-              <img 
-                src={jury.image} 
-                alt={jury.name} 
-                style={{ width: '160px', height: '160px', borderRadius: '50%', marginBottom: '1.5rem', objectFit: 'cover', border: '2px solid rgba(0, 240, 255, 0.3)' }} 
-              />
-            ) : (
-              <div style={{ width: '160px', height: '160px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', marginBottom: '1.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '3rem', color: 'rgba(255,255,255,0.2)' }}>
-                ?
-              </div>
-            )}
-            <h3 style={{ marginBottom: '0.5rem', color: jury.name === "To be announced" ? 'rgba(255,255,255,0.5)' : '#fff' }}>{jury.name}</h3>
-            <p style={{ color: 'rgba(255,255,255,0.55)', fontSize: '0.9rem', marginBottom: jury.company ? '0.4rem' : '0' }}>{jury.role}</p>
-            {jury.company && <p style={{ color: 'rgba(0, 240, 255, 0.8)', fontSize: '0.8rem', fontWeight: 'bold', textTransform: 'uppercase', letterSpacing: '1px' }}>{jury.company}</p>}
-          </motion.div>
-        ))}
-      </div>
-      
-      <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-          <motion.button 
-            className="btn glow-btn"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Apply as Jury
-          </motion.button>
+        <div className="about-content" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
+          {juriesData.map((jury, i) => (
+            <motion.div 
+              key={i}
+              className="about-block"
+              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 20px' }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+            >
+              {jury.image ? (
+                <img 
+                  src={jury.image} 
+                  alt={jury.name} 
+                  style={{ width: '150px', height: '150px', borderRadius: '50%', marginBottom: '25px', objectFit: 'cover', border: '3px solid var(--neon-cyan)' }} 
+                />
+              ) : (
+                <div style={{ width: '150px', height: '150px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', marginBottom: '25px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem', color: 'rgba(255,255,255,0.2)' }}>
+                  ?
+                </div>
+              )}
+              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: 'var(--text-main)' }}>{jury.name}</h3>
+              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '8px' }}>{jury.role}</p>
+              {jury.company && <p style={{ fontSize: '0.8rem', color: 'var(--neon-cyan)', fontWeight: '700', letterSpacing: '1px' }}>{jury.company}</p>}
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

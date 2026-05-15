@@ -3,25 +3,25 @@ import { motion } from 'framer-motion';
 const experiences = [
   {
     icon: '🎮',
-    title: 'Mini Games',
+    title: 'MINI GAMES',
     desc: 'Fun breaks with competitive mini-games throughout the event',
     color: '#00f0ff'
   },
   {
     icon: '🎯',
-    title: 'Mentor Sessions',
+    title: 'MENTOR SESSIONS',
     desc: 'Interactive guidance from industry experts and senior developers',
     color: '#a855f7'
   },
   {
     icon: '🎁',
-    title: 'Surprise Drops',
+    title: 'SURPRISE DROPS',
     desc: 'Unexpected rewards, swag drops, and secret challenges',
     color: '#ec4899'
   },
   {
     icon: '⚡',
-    title: 'High Engagement',
+    title: 'HIGH ENGAGEMENT',
     desc: 'Reward-based participation for the most active participants',
     color: '#39ff14'
   },
@@ -29,51 +29,43 @@ const experiences = [
 
 export default function ExperienceZone() {
   return (
-    <section id="experience" className="section">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        EXPERIENCE <span className="accent">ZONE</span>
-      </motion.h2>
-      <motion.p
-        className="section-subtitle"
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-      >
-        24 hours of non-stop energy and engagement
-      </motion.p>
+    <section id="experience" className="event-section">
+      <div className="event-container">
+        
+        <motion.div 
+          className="event-header"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="section-title-huge">
+            <span className="stroke-text">EXPERIENCE</span><br />
+            ZONE
+          </h2>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>24 HOURS OF NON-STOP ENERGY</p>
+        </motion.div>
 
-      <div className="experience-grid">
-        {experiences.map((exp, i) => (
-          <motion.div
-            key={i}
-            className="glass-card experience-card"
-            initial={{ opacity: 0, y: 30, rotateY: -10 }}
-            whileInView={{ opacity: 1, y: 0, rotateY: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.12 }}
-            whileHover={{
-              y: -8,
-              boxShadow: `0 0 35px ${exp.color}20`,
-              borderColor: `${exp.color}30`
-            }}
-          >
-            <motion.span
-              className="exp-icon"
-              whileHover={{ scale: 1.3, rotate: 10 }}
+        <div className="event-data-list">
+          {experiences.map((exp, index) => (
+            <motion.div 
+              key={index}
+              className="event-data-item"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ x: -10, backgroundColor: 'rgba(0, 240, 255, 0.05)', borderRightColor: exp.color }}
             >
-              {exp.icon}
-            </motion.span>
-            <h3 style={{ color: exp.color }}>{exp.title}</h3>
-            <p>{exp.desc}</p>
-          </motion.div>
-        ))}
+              <div className="data-icon" style={{ color: exp.color }}>{exp.icon}</div>
+              <div className="data-content">
+                <div className="data-value" style={{ color: exp.color, fontSize: '1.2rem' }}>{exp.title}</div>
+                <div className="data-label" style={{ marginTop: '10px', color: 'var(--text-main)', letterSpacing: '1px', textTransform: 'none' }}>{exp.desc}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );

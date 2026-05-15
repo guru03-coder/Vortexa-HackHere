@@ -1,90 +1,147 @@
 import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect } from 'react';
 
 export default function SplashScreen({ onComplete }) {
+  const [progress, setProgress] = useState(0);
+  const [loadingText, setLoadingText] = useState("INITIALIZING_CORE_SYSTEMS...");
+  const [glitchActive, setGlitchActive] = useState(false);
+
+  useEffect(() => {
+    const texts = [
+      "CONNECTING_TO_HACKHERE_SERVERS...",
+      "BYPASSING_MAINFRAME_FIREWALLS...",
+      "DECRYPTING_VORTEX_PROTOCOL...",
+      "INJECTING_PAYLOAD...",
+      "SYSTEM_OVERRIDE_SUCCESSFUL",
+      "ACCESS_GRANTED_"
+    ];
+    
+    let currentTextIndex = 0;
+    const textInterval = setInterval(() => {
+      if (currentTextIndex < texts.length) {
+        setLoadingText(texts[currentTextIndex]);
+        setGlitchActive(true);
+        setTimeout(() => setGlitchActive(false), 200); // Short glitch effect on text change
+        currentTextIndex++;
+      }
+    }, 800); // Slowed down from 500
+
+    const progressInterval = setInterval(() => {
+      setProgress(p => {
+        if (p >= 100) {
+          clearInterval(progressInterval);
+          setTimeout(() => onComplete(), 1200); // Wait longer at 100%
+          return 100;
+        }
+        return p + Math.floor(Math.random() * 12) + 2; // Slower increments
+      });
+    }, 250); // Slowed down from 150
+
+    return () => {
+      clearInterval(textInterval);
+      clearInterval(progressInterval);
+    };
+  }, [onComplete]);
+
   return (
     <AnimatePresence>
       <motion.div
-        className="splash-screen"
+        className="splash-screen brutalist-loader-box"
         initial={{ opacity: 1 }}
         animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.6, ease: 'easeInOut' }}
-        onAnimationComplete={() => {}}
+        exit={{ opacity: 0, scale: 1.1, filter: 'blur(20px)' }}
+        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          background: '#050505',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontFamily: 'monospace',
+          color: 'var(--neon-cyan)',
+          position: 'fixed',
+          inset: 0,
+          zIndex: 9999,
+        }}
       >
-        {/* Background particles */}
-        <div className="splash-particles">
-          {Array.from({ length: 30 }).map((_, i) => (
-            <motion.div
-              key={i}
-              className="splash-particle"
+        <div style={{ width: '90%', maxWidth: '500px', padding: '40px', border: '2px solid rgba(0, 240, 255, 0.2)', background: 'rgba(0,0,0,0.5)', position: 'relative' }}>
+          
+          {/* Decorative Corner Accents */}
+          <div style={{ position: 'absolute', top: '-2px', left: '-2px', width: '20px', height: '20px', borderTop: '2px solid var(--neon-cyan)', borderLeft: '2px solid var(--neon-cyan)' }}></div>
+          <div style={{ position: 'absolute', top: '-2px', right: '-2px', width: '20px', height: '20px', borderTop: '2px solid var(--neon-cyan)', borderRight: '2px solid var(--neon-cyan)' }}></div>
+          <div style={{ position: 'absolute', bottom: '-2px', left: '-2px', width: '20px', height: '20px', borderBottom: '2px solid var(--neon-cyan)', borderLeft: '2px solid var(--neon-cyan)' }}></div>
+          <div style={{ position: 'absolute', bottom: '-2px', right: '-2px', width: '20px', height: '20px', borderBottom: '2px solid var(--neon-cyan)', borderRight: '2px solid var(--neon-cyan)' }}></div>
+
+          {/* Brutalist Logo Block */}
+          <div style={{
+            background: 'var(--neon-cyan)',
+            color: '#000',
+            padding: '8px 12px',
+            fontWeight: '900',
+            fontSize: '1rem',
+            letterSpacing: '3px',
+            marginBottom: '20px',
+            textTransform: 'uppercase',
+            boxShadow: '4px 4px 0 var(--neon-magenta)',
+            display: 'inline-block',
+          }}>
+            HACKHERE.INIT
+          </div>
+          <div style={{
+            background: progress === 100 ? 'var(--neon-magenta)' : 'var(--neon-cyan)',
+            color: '#000',
+            padding: '15px 20px',
+            fontWeight: '900',
+            fontSize: 'clamp(2rem, 5vw, 3rem)',
+            letterSpacing: '8px',
+            marginBottom: '40px',
+            textTransform: 'uppercase',
+            boxShadow: progress === 100 ? '6px 6px 0 var(--neon-cyan)' : '6px 6px 0 var(--neon-magenta)',
+            animation: glitchActive ? 'cyber-glitch 0.2s steps(2) infinite alternate' : 'none',
+            display: 'inline-block',
+            transition: 'background 0.3s, box-shadow 0.3s'
+          }}>
+            VORTEXA<span style={{ opacity: 0.5 }}>_</span>
+          </div>
+
+          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px', fontSize: '1.1rem', color: '#fff', textTransform: 'uppercase', letterSpacing: '1px' }}>
+            <span style={{ animation: glitchActive ? 'cyber-glitch 0.1s steps(2) infinite' : 'none' }}>
+              {loadingText}
+            </span>
+            <span style={{ color: progress === 100 ? 'var(--neon-magenta)' : 'var(--neon-cyan)', fontWeight: 'bold' }}>
+              {Math.min(progress, 100)}%
+            </span>
+          </div>
+          
+          <div style={{
+            width: '100%',
+            height: '24px',
+            border: '2px solid rgba(255,255,255,0.2)',
+            padding: '2px',
+            position: 'relative'
+          }}>
+            <motion.div 
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                width: `${2 + Math.random() * 4}px`,
-                height: `${2 + Math.random() * 4}px`,
+                height: '100%',
+                background: progress === 100 ? 'var(--neon-magenta)' : 'var(--neon-cyan)',
+                boxShadow: progress === 100 ? '0 0 10px var(--neon-magenta)' : '0 0 10px var(--neon-cyan)'
               }}
-              animate={{
-                opacity: [0, 0.8, 0],
-                scale: [0.5, 1.5, 0.5],
-              }}
-              transition={{
-                duration: 1.5 + Math.random() * 2,
-                repeat: Infinity,
-                delay: Math.random() * 1.5,
-              }}
+              animate={{ width: `${Math.min(progress, 100)}%` }}
+              transition={{ type: 'tween', ease: 'linear', duration: 0.1 }}
             />
-          ))}
+          </div>
+          
+          <div style={{ 
+            marginTop: '30px', 
+            fontSize: '0.8rem', 
+            color: 'rgba(255,255,255,0.4)',
+            display: 'flex',
+            justifyContent: 'space-between'
+          }}>
+            <span>[ HACKHERE PRESENTS ]</span>
+            <span>v1.0.0</span>
+          </div>
         </div>
-
-        {/* Logo container */}
-        <motion.div className="splash-logo-container">
-          {/* Glowing ring behind logo */}
-          <motion.div
-            className="splash-ring"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: [0, 1.2, 1], opacity: [0, 0.6, 0.3] }}
-            transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-          />
-
-          {/* Logo image */}
-          <motion.img
-            src="/images/hackhere-logo.jpeg"
-            alt="HackHere"
-            className="splash-logo-img"
-            initial={{ opacity: 0, scale: 0.3, rotateY: -180 }}
-            animate={{ opacity: 1, scale: 1, rotateY: 0 }}
-            transition={{ duration: 1, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          />
-
-          {/* Tagline below logo */}
-          <motion.p
-            className="splash-tagline"
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-          >
-            Presents
-          </motion.p>
-
-          {/* AIVENTRA text reveal */}
-          <motion.h1
-            className="splash-title"
-            initial={{ opacity: 0, scale: 0.5, letterSpacing: '20px' }}
-            animate={{ opacity: 1, scale: 1, letterSpacing: '8px' }}
-            transition={{ duration: 1, delay: 1.4, ease: [0.16, 1, 0.3, 1] }}
-          >
-            AIVENTRA
-          </motion.h1>
-        </motion.div>
-
-        {/* Final zoom-in transition */}
-        <motion.div
-          className="splash-overlay"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 3.0 }}
-          onAnimationComplete={onComplete}
-        />
       </motion.div>
     </AnimatePresence>
   );

@@ -13,7 +13,7 @@
 
 ## 🚀 Overview
 
-The **AIventra Hackathon Website** serves as the digital front door for the ultimate tech showdown organized by HackHere. It is designed to provide a completely immersive, high-depth 3D interactive experience. Visitors are greeted by a zero-gravity space aesthetic, complete with a reactive starfield, interactive 3D-tilt cards, and a cinematic journey through the event's missions.
+The **VORTEXA Hackathon Website** serves as the digital front door for the ultimate tech showdown organized by HackHere. It is designed to provide a completely immersive, high-depth 3D interactive experience. Visitors are greeted by a zero-gravity space aesthetic, complete with a reactive starfield, interactive 3D-tilt cards, and a cinematic journey through the event's missions.
 
 ### ✨ Key Features
 - **Cinematic Entrance**: Splash screen and hero animations that set a futuristic tone.

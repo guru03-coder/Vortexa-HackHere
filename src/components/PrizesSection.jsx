@@ -2,75 +2,65 @@ import { motion } from 'framer-motion';
 
 const prizes = [
   {
-    icon: '💼',
-    title: 'Internship Opportunities',
-    color: '#00f0ff',
-    glow: 'rgba(0, 240, 255, 0.25)'
-  },
-  {
     icon: '🏆',
-    title: 'Prize Pool',
+    title: 'PRIZE POOL',
     value: '₹1,00,000',
     color: '#FFD700',
-    glow: 'rgba(255, 215, 0, 0.25)',
-    isCenter: true
+    isMain: true
+  },
+  {
+    icon: '💼',
+    title: 'INTERNSHIP OPPORTUNITIES',
+    value: 'Direct hiring for top teams',
+    color: '#00f0ff',
   },
   {
     icon: '🎁',
-    title: 'Goodies & Merchandise',
+    title: 'GOODIES & MERCHANDISE',
+    value: 'Exclusive Vortexa gear for participants',
     color: '#ec4899',
-    glow: 'rgba(236, 72, 153, 0.25)'
   }
 ];
 
 export default function PrizesSection() {
   return (
-    <section id="prizes" className="section">
-      <motion.h2
-        className="section-title"
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-      >
-        REWARD <span className="accent">SYSTEM</span>
-      </motion.h2>
+    <section id="prizes" className="event-section">
+      <div className="event-container">
+        
+        <motion.div 
+          className="event-header"
+          initial={{ opacity: 0, x: -50 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true, margin: '-100px' }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="section-title-huge">
+            REWARD<br />
+            <span className="stroke-text">SYSTEM</span>
+          </h2>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>ONLY THE STRONGEST SURVIVE</p>
+        </motion.div>
 
-      <div className="prizes-grid">
-        {prizes.map((prize, i) => (
-          <motion.div
-            key={i}
-            className={`glass-card prize-card ${prize.isCenter ? 'prize-card-center' : ''}`}
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.15 }}
-            whileHover={{
-              y: -8,
-              boxShadow: `0 0 50px ${prize.glow}`,
-              borderColor: `${prize.color}40`
-            }}
-            animate={{
-              y: [0, -6, 0]
-            }}
-            style={{
-              borderTop: `3px solid ${prize.color}40`
-            }}
-          >
-            <div className="hologram" />
-            <motion.span
-              className="prize-icon"
-              animate={{ rotate: [0, 5, -5, 0] }}
-              transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: i * 0.5 }}
+        <div className="event-data-list">
+          {prizes.map((prize, index) => (
+            <motion.div 
+              key={index}
+              className={`event-data-item ${prize.isMain ? 'prize-item' : ''}`}
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              whileHover={{ x: -10, backgroundColor: 'rgba(0, 240, 255, 0.05)', borderRightColor: prize.color }}
             >
-              {prize.icon}
-            </motion.span>
-            <h3 style={{ color: prize.color }}>{prize.title}</h3>
-            {prize.value && (
-              <p className="reward prize-value-text">{prize.value}</p>
-            )}
-          </motion.div>
-        ))}
+              <div className="data-icon" style={{ color: prize.color }}>{prize.icon}</div>
+              <div className="data-content">
+                <div className="data-label">{prize.title}</div>
+                <div className="data-value" style={{ color: prize.color, fontSize: prize.isMain ? '2rem' : '1.2rem' }}>{prize.value}</div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+
       </div>
     </section>
   );
