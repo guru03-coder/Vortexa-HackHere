@@ -84,7 +84,7 @@ export default function HeroSection() {
           </motion.h1>
           <div className="hero-details">
             <p className="hero-date">JUNE 20–21, 2026</p>
-            <p className="hero-venue">StartupTN Nandhanam</p>
+            <p className="hero-venue">INTRO WORKS, CHENNAI</p>
           </div>
           <motion.button 
             className="hero-cta"

@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 
 const details = [
-  { label: 'VENUE', value: 'StartupTN Nandhanam', icon: '📍', color: 'var(--neon-cyan)', link: 'https://maps.app.goo.gl/B46iMvCmr6Xf3u3D8' },
+  { label: 'VENUE', value: 'Intro Works, Nandambakkam', icon: '📍', color: 'var(--neon-cyan)', link: 'https://www.google.com/maps/dir//Intro+Works,+No+1%2F2a,+Dharmambal+Palanippan+Complex,+First+Floor,+Mount+Poonamallee+Rd,+near+A2B+Restaturant,+Ramapuram,+Nandambakkam,+Chennai,+Tamil+Nadu+600089/@13.0102989,80.1855184,16.06z' },
   { label: 'DATES', value: 'June 20–21, 2026', icon: '📅', color: 'var(--neon-magenta)' },
   { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: 'var(--neon-blue)' },
   { label: 'MODE', value: 'Offline', icon: '🌐', color: 'var(--text-main)' },
