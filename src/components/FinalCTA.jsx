@@ -24,7 +24,7 @@ export default function FinalCTA() {
 
           <button 
             className="hero-cta cta-button"
-            onClick={() => window.open('https://unstop.com/p/aiventra-hackhere-1676309', '_blank')}
+            onClick={() => {}}
           >
             SECURE YOUR SPOT <span className="arrow">→</span>
           </button>

@@ -42,7 +42,7 @@ export default function JuriesSection() {
           <button 
             className="hero-cta"
             style={{ marginTop: '40px' }}
-            onClick={() => window.open('https://unstop.com/p/aiventra-hackhere-1676309', '_blank')}
+            onClick={() => {}}
           >
             APPLY AS JURY <span className="arrow">→</span>
           </button>

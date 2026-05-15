@@ -86,16 +86,14 @@ export default function HeroSection() {
             <p className="hero-date">JUNE 20–21, 2026</p>
             <p className="hero-venue">INTRO WORKS, CHENNAI</p>
           </div>
-          {/* 
           <motion.button 
             className="hero-cta"
-            onClick={() => window.open('https://unstop.com/p/aiventra-hackhere-1676309', '_blank')}
+            onClick={() => {}}
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0,240,255,0.5)" }}
             whileTap={{ scale: 0.95 }}
           >
             INITIALIZE SEQUENCE <span className="arrow">→</span>
           </motion.button>
-          */}
         </motion.div>
 
         {/* Right Side: Minimalist Countdown */}
