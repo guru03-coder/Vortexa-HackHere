@@ -86,6 +86,7 @@ export default function HeroSection() {
             <p className="hero-date">JUNE 20–21, 2026</p>
             <p className="hero-venue">INTRO WORKS, CHENNAI</p>
           </div>
+          {/* 
           <motion.button 
             className="hero-cta"
             onClick={() => window.open('https://unstop.com/p/aiventra-hackhere-1676309', '_blank')}
@@ -94,6 +95,7 @@ export default function HeroSection() {
           >
             INITIALIZE SEQUENCE <span className="arrow">→</span>
           </motion.button>
+          */}
         </motion.div>
 
         {/* Right Side: Minimalist Countdown */}
