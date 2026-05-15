@@ -63,13 +63,13 @@ export default function App() {
       </video>
       <div className="global-video-overlay" />
 
-      {/* 3D Earth Cursor (Kept as requested or implicit in skeleton) */}
+      {/* Custom Vortex Cursor */}
       <div
-        className="earth-cursor"
+        className="vortex-cursor"
         style={{ left: cursorPos.x, top: cursorPos.y }}
       />
       <div
-        className="earth-cursor-trail"
+        className="vortex-cursor-trail"
         style={{ left: cursorPos.x, top: cursorPos.y }}
       />
 
