@@ -24,7 +24,7 @@ export default function FinalCTA() {
 
           <button 
             className="hero-cta cta-button"
-            onClick={() => {}}
+            onClick={() => window.open('https://unstop.com/hackathons/vertexa-hackhere-1686997', '_blank')}
           >
             SECURE YOUR SPOT <span className="arrow">→</span>
           </button>

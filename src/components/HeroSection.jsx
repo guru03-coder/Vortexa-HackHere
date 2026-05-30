@@ -88,7 +88,7 @@ export default function HeroSection() {
           </div>
           <motion.button 
             className="hero-cta"
-            onClick={() => {}}
+            onClick={() => window.open('https://unstop.com/hackathons/vertexa-hackhere-1686997', '_blank')}
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0,240,255,0.5)" }}
             whileTap={{ scale: 0.95 }}
           >
