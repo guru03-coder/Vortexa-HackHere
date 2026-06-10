@@ -247,7 +247,7 @@ export const hackathonData = {
       },
       {
         name: "Technobility",
-        role: "Official Partner",
+        role: "Intern Partner",
         logo: "" // Text-fallback used in component if empty
       },
       {
