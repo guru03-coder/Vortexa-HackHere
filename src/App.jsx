@@ -118,7 +118,7 @@ export default function App() {
               </a>
             </div>
             <p className="footer-text">
-              © {hackathonData.event.year} <span className="accent">{hackathonData.event.organizer}</span> | {hackathonData.event.name} Hackathon — {hackathonData.event.tagline.toUpperCase()}
+              © {hackathonData.event.year} <span className="accent">{hackathonData.event.organizer}</span> | {hackathonData.event.name} Hackathon
             </p>
           </div>
         </footer>
