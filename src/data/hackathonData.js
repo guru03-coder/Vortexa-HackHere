@@ -236,16 +236,6 @@ export const hackathonData = {
         logo: "/images/sponsors/featherlessai.jpeg"
       },
       {
-        name: "Journi",
-        role: "Travel Partner",
-        logo: "/images/sponsors/jorni.jpeg"
-      },
-      {
-        name: "Elyon Clothing",
-        role: "Merchandise Partner",
-        logo: "/images/sponsors/elyon.jpeg"
-      },
-      {
         name: "Cristel",
         role: "Intern Partner",
         logo: "/images/sponsors/intern1.jpeg"
@@ -259,6 +249,16 @@ export const hackathonData = {
         name: "Technobility",
         role: "Official Partner",
         logo: "" // Text-fallback used in component if empty
+      },
+      {
+        name: "Journi",
+        role: "Travel Partner",
+        logo: "/images/sponsors/jorni.jpeg"
+      },
+      {
+        name: "Elyon Clothing",
+        role: "Merchandise Partner",
+        logo: "/images/sponsors/elyon.jpeg"
       }
     ]
   }
