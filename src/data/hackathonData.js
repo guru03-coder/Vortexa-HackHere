@@ -204,11 +204,9 @@ export const hackathonData = {
       {
         name: "K GURU PRAKASH",
         role: "Developer Team Lead",
-        photo: "/images/guru_new.png",
+        photo: "/images/guru_prakash.jpeg",
         color: "#a855f7",
         linkedin: "https://www.linkedin.com/in/k-guru-prakash-9a4184337/",
-        objectPosition: "top",
-        objectFit: "contain",
       },
       {
         name: "RITHIKA S",
