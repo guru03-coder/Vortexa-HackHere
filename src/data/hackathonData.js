@@ -25,6 +25,7 @@ export const hackathonData = {
     phone: "94427 77855",
     email: "hackhere2026@gmail.com",
     instagram: "https://www.instagram.com/hackhere_connect/",
+    linkedin: "https://www.linkedin.com/in/hack-here-911237403/",
   },
 
   about: {
