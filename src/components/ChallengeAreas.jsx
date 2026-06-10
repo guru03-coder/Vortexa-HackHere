@@ -1,33 +1,11 @@
 import { motion } from 'framer-motion';
-
-const challenges = [
-  {
-    icon: '🤖',
-    title: 'ARTIFICIAL INTELLIGENCE',
-    desc: 'Build intelligent systems that learn, adapt, and transform industries',
-    color: '#00f0ff'
-  },
-  {
-    icon: '🛡️',
-    title: 'CYBER SECURITY',
-    desc: 'Defend digital frontiers with innovative security solutions and threat detection',
-    color: '#a855f7'
-  },
-  {
-    icon: '⛓️',
-    title: 'BLOCKCHAIN',
-    desc: 'Build decentralized applications and trustless systems for the future',
-    color: '#ec4899'
-  },
-  {
-    icon: '⚙️',
-    title: 'DEVOPS',
-    desc: 'Automate, integrate, and deploy — streamline the software lifecycle',
-    color: '#39ff14'
-  }
-];
+import { hackathonData } from '../data/hackathonData';
 
 export default function ChallengeAreas() {
+  const { title, kicker, list } = hackathonData.challenges;
+  const firstWord = title.split(' ')[0];
+  const restOfTitle = title.split(' ').slice(1).join(' ');
+
   return (
     <section id="challenges" className="event-section">
       <div className="event-container">
@@ -40,14 +18,14 @@ export default function ChallengeAreas() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title-huge">
-            CHALLENGE<br />
-            <span className="stroke-text">DOMAINS</span>
+            {firstWord}<br />
+            <span className="stroke-text">{restOfTitle}</span>
           </h2>
-          <p className="hero-kicker" style={{ marginTop: '20px' }}>CHOOSE YOUR FRONTIER. SHAPE THE FUTURE.</p>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>{kicker}</p>
         </motion.div>
 
         <div className="event-data-list">
-          {challenges.map((c, index) => (
+          {list.map((c, index) => (
             <motion.div 
               key={index}
               className="event-data-item"

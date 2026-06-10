@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
+import { hackathonData } from '../data/hackathonData';
 
 export default function HeroSection() {
   const [countdown, setCountdown] = useState({ days: 0, hours: 0, mins: 0, secs: 0 });
+  const { name, kicker, dates, venueShort, registrationLink, targetDateTime } = hackathonData.event;
 
   useEffect(() => {
-    const target = new Date('2026-06-20T09:00:00+05:30').getTime();
+    const target = new Date(targetDateTime).getTime();
     const tick = () => {
       const now = Date.now();
       const diff = Math.max(0, target - now);
@@ -19,7 +21,7 @@ export default function HeroSection() {
     tick();
     const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, []);
+  }, [targetDateTime]);
 
   return (
     <section id="home" className="hero-section">
@@ -36,7 +38,7 @@ export default function HeroSection() {
             animate={{ opacity: [0.7, 1, 0.7] }}
             transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
           >
-            HACKHERE PRESENTS
+            {kicker}
           </motion.p>
           <motion.h1 
             className="hero-title-massive"
@@ -53,7 +55,7 @@ export default function HeroSection() {
               }
             }}
           >
-            {"VORTEXA".split("").map((char, index) => (
+            {name.split("").map((char, index) => (
               <motion.span
                 key={index}
                 variants={{
@@ -83,12 +85,12 @@ export default function HeroSection() {
             ))}
           </motion.h1>
           <div className="hero-details">
-            <p className="hero-date">JUNE 20–21, 2026</p>
-            <p className="hero-venue">INTRO WORKS, CHENNAI</p>
+            <p className="hero-date">{dates.toUpperCase()}</p>
+            <p className="hero-venue">{venueShort.toUpperCase()}</p>
           </div>
           <motion.button 
             className="hero-cta"
-            onClick={() => window.open('https://unstop.com/hackathons/vertexa-hackhere-1686997', '_blank')}
+            onClick={() => window.open(registrationLink, '_blank')}
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(0,240,255,0.5)" }}
             whileTap={{ scale: 0.95 }}
           >

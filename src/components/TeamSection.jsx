@@ -1,39 +1,11 @@
 import { motion } from 'framer-motion';
-
-const team = [
-  {
-    name: 'EZHIL KK',
-    role: 'Sponsor & Communication Lead',
-    photo: '/images/ezhil.jpg.jpeg',
-    color: '#00f0ff',
-    linkedin: 'https://www.linkedin.com/in/kk-ezhil-6a31a6235/',
-  },
-  {
-    name: 'K GURU PRAKASH',
-    role: 'Developer Team Lead',
-    photo: '/images/guru_new.png',
-    color: '#a855f7',
-    linkedin: 'https://www.linkedin.com/in/k-guru-prakash-9a4184337/',
-    objectPosition: 'top',
-    objectFit: 'contain',
-  },
-  {
-    name: 'RITHIKA S',
-    role: 'Social Media & Content Lead',
-    photo: '/images/rithika.jpg.jpeg',
-    color: '#ec4899',
-    linkedin: 'https://www.linkedin.com/in/rithika-somasundaram/',
-  },
-  {
-    name: 'SHUBAASHREE S',
-    role: 'Outreach & Content Lead',
-    photo: '/images/shubaashree.jpg.jpeg',
-    color: '#ff2244',
-    linkedin: 'https://www.linkedin.com/in/shubaashreesureshbabu',
-  },
-];
+import { hackathonData } from '../data/hackathonData';
 
 export default function TeamSection() {
+  const { title, kicker, list } = hackathonData.team;
+  const firstWord = title.split(' ')[0];
+  const restOfTitle = title.split(' ').slice(1).join(' ');
+
   return (
     <section id="team" className="about-section">
       <div className="about-container">
@@ -46,40 +18,55 @@ export default function TeamSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title-huge">
-            <span className="stroke-text">CORE</span><br />
-            TEAM
+            <span className="stroke-text">{firstWord}</span><br />
+            {restOfTitle}
           </h2>
-          <p className="hero-kicker" style={{ marginTop: '20px' }}>THE ARCHITECTS OF THE VORTEX</p>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>{kicker}</p>
         </motion.div>
 
-        <div className="about-content" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))' }}>
-          {team.map((member, i) => (
+        <div className="about-content" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '60px' }}>
+          {list.map((member, idx) => (
             <motion.div 
-              key={i}
+              key={idx}
               className="about-block"
-              style={{ padding: '0', overflow: 'hidden', border: `1px solid ${member.color}40`, background: '#050505' }}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: i * 0.1 }}
+              transition={{ delay: idx * 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 0 20px rgba(0, 240, 255, 0.1)" }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                padding: '30px',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center'
+              }}
             >
-              <img 
-                src={member.photo} 
-                alt={member.name} 
-                style={{ width: '100%', height: '250px', objectFit: member.objectFit || 'cover', objectPosition: member.objectPosition || 'center', filter: 'grayscale(100%) contrast(1.2)', transition: 'filter 0.3s' }} 
-                onMouseOver={e => e.currentTarget.style.filter = 'grayscale(0%) contrast(1)'}
-                onMouseOut={e => e.currentTarget.style.filter = 'grayscale(100%) contrast(1.2)'}
-                onError={(e) => {
-                  e.target.style.display = 'none';
+              <div 
+                className="team-avatar-placeholder" 
+                style={{ 
+                  width: '100px', 
+                  height: '100px', 
+                  borderRadius: '50%', 
+                  background: 'linear-gradient(135deg, var(--neon-magenta), var(--neon-blue))', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  fontSize: '2rem',
+                  fontWeight: 'bold',
+                  color: '#fff',
+                  marginBottom: '20px',
+                  boxShadow: '0 0 15px rgba(236,72,153,0.3)'
                 }}
-              />
-              <div style={{ padding: '20px' }}>
-                <h3 style={{ fontSize: '1.2rem', marginBottom: '5px', color: member.color }}>{member.name}</h3>
-                <p style={{ fontSize: '0.8rem', color: 'var(--text-main)', marginBottom: '15px' }}>{member.role}</p>
-                <a href={member.linkedin} target="_blank" rel="noreferrer" style={{ color: member.color, fontSize: '0.8rem', textDecoration: 'none', borderBottom: `1px solid ${member.color}`, paddingBottom: '2px', textTransform: 'uppercase', letterSpacing: '1px' }}>
-                  Connect
-                </a>
+              >
+                {member.name.split(' ').map(n => n[0]).join('')}
               </div>
+              <h3 style={{ fontSize: '1.2rem', color: 'var(--neon-magenta)', letterSpacing: '1px', marginBottom: '5px' }}>{member.name}</h3>
+              <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: '500', marginBottom: '10px' }}>{member.role}</p>
             </motion.div>
           ))}
         </div>

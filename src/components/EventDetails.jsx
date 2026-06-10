@@ -1,13 +1,16 @@
 import { motion } from 'framer-motion';
-
-const details = [
-  { label: 'VENUE', value: 'Intro Works, Nandambakkam', icon: '📍', color: 'var(--neon-cyan)', link: 'https://www.google.com/maps/dir//Intro+Works,+No+1%2F2a,+Dharmambal+Palanippan+Complex,+First+Floor,+Mount+Poonamallee+Rd,+near+A2B+Restaturant,+Ramapuram,+Nandambakkam,+Chennai,+Tamil+Nadu+600089/@13.0102989,80.1855184,16.06z' },
-  { label: 'DATES', value: 'June 20–21, 2026', icon: '📅', color: 'var(--neon-magenta)' },
-  { label: 'DURATION', value: '24 Hours', icon: '⏱️', color: 'var(--neon-blue)' },
-  { label: 'MODE', value: 'Offline', icon: '🌐', color: 'var(--text-main)' },
-];
+import { hackathonData } from '../data/hackathonData';
 
 export default function EventDetails() {
+  const { venue, dates, duration, mode, prizePool, venueLink } = hackathonData.event;
+
+  const details = [
+    { label: 'VENUE', value: venue, icon: '📍', color: 'var(--neon-cyan)', link: venueLink },
+    { label: 'DATES', value: dates, icon: '📅', color: 'var(--neon-magenta)' },
+    { label: 'DURATION', value: duration, icon: '⏱️', color: 'var(--neon-blue)' },
+    { label: 'MODE', value: mode, icon: '🌐', color: 'var(--text-main)' },
+  ];
+
   return (
     <section id="event-details" className="event-section">
       <div className="event-container">
@@ -61,7 +64,7 @@ export default function EventDetails() {
             <div className="data-icon">🏆</div>
             <div className="data-content">
               <div className="data-label">PRIZE POOL</div>
-              <div className="data-value prize-value">₹1,00,000</div>
+              <div className="data-value prize-value">{prizePool}</div>
             </div>
           </motion.div>
 

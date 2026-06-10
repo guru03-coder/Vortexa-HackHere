@@ -1,67 +1,51 @@
 import { motion } from 'framer-motion';
-
-const experiences = [
-  {
-    icon: '🎮',
-    title: 'MINI GAMES',
-    desc: 'Fun breaks with competitive mini-games throughout the event',
-    color: '#00f0ff'
-  },
-  {
-    icon: '🎯',
-    title: 'MENTOR SESSIONS',
-    desc: 'Interactive guidance from industry experts and senior developers',
-    color: '#a855f7'
-  },
-  {
-    icon: '🎁',
-    title: 'SURPRISE DROPS',
-    desc: 'Unexpected rewards, swag drops, and secret challenges',
-    color: '#ec4899'
-  },
-  {
-    icon: '⚡',
-    title: 'HIGH ENGAGEMENT',
-    desc: 'Reward-based participation for the most active participants',
-    color: '#39ff14'
-  },
-];
+import { hackathonData } from '../data/hackathonData';
 
 export default function ExperienceZone() {
+  const { title, kicker, list } = hackathonData.experienceZone;
+  const firstWord = title.split(' ')[0];
+  const restOfTitle = title.split(' ').slice(1).join(' ');
+
   return (
-    <section id="experience" className="event-section">
-      <div className="event-container">
+    <section id="experience" className="flow-section">
+      <div className="flow-container-new">
         
         <motion.div 
-          className="event-header"
-          initial={{ opacity: 0, x: -50 }}
-          whileInView={{ opacity: 1, x: 0 }}
+          className="flow-header"
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-100px' }}
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title-huge">
-            <span className="stroke-text">EXPERIENCE</span><br />
-            ZONE
+            {firstWord}<br />
+            <span className="stroke-text">{restOfTitle}</span>
           </h2>
-          <p className="hero-kicker" style={{ marginTop: '20px' }}>24 HOURS OF NON-STOP ENERGY</p>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>{kicker}</p>
         </motion.div>
 
-        <div className="event-data-list">
-          {experiences.map((exp, index) => (
+        <div className="benefits-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '60px' }}>
+          {list.map((item, idx) => (
             <motion.div 
-              key={index}
-              className="event-data-item"
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={idx}
+              className="benefit-card"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ x: -10, backgroundColor: 'rgba(0, 240, 255, 0.05)', borderRightColor: exp.color }}
+              transition={{ delay: idx * 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 0 20px rgba(168, 85, 247, 0.2)" }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                borderLeft: `4px solid ${idx % 2 === 0 ? 'var(--neon-magenta)' : 'var(--neon-blue)'}`,
+                padding: '30px',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease'
+              }}
             >
-              <div className="data-icon" style={{ color: exp.color }}>{exp.icon}</div>
-              <div className="data-content">
-                <div className="data-value" style={{ color: exp.color, fontSize: '1.2rem' }}>{exp.title}</div>
-                <div className="data-label" style={{ marginTop: '10px', color: 'var(--text-main)', letterSpacing: '1px', textTransform: 'none' }}>{exp.desc}</div>
-              </div>
+              <div className="benefit-icon" style={{ fontSize: '2.5rem', marginBottom: '20px' }}>{item.icon}</div>
+              <h3 className="benefit-title" style={{ fontSize: '1.2rem', marginBottom: '15px', color: idx % 2 === 0 ? 'var(--neon-magenta)' : 'var(--neon-blue)', letterSpacing: '1px' }}>{item.title}</h3>
+              <p className="benefit-desc" style={{ color: 'var(--text-main)', fontSize: '0.9rem', lineHeight: '1.6' }}>{item.desc}</p>
             </motion.div>
           ))}
         </div>

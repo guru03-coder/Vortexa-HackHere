@@ -1,27 +1,11 @@
 import { motion } from 'framer-motion';
-
-const juriesData = [
-  {
-    name: "ANTONY",
-    role: "Interned in Prism Software Solutions",
-    company: "placed in Chris Byte Solutions Private Limited",
-    image: "/images/antony.jpeg"
-  },
-  {
-    name: "GOKUL",
-    role: "Executive HR",
-    company: "Cognizant",
-    image: "/images/gokul.jpeg"
-  },
-  {
-    name: "YUVA SRI",
-    role: "Software developer | PWC",
-    company: "Intern | Zoho",
-    image: "/images/yuvasri.jpeg"
-  }
-];
+import { hackathonData } from '../data/hackathonData';
 
 export default function JuriesSection() {
+  const { title, kicker, list } = hackathonData.juries;
+  const firstWord = title.split(' ')[0];
+  const restOfTitle = title.split(' ').slice(1).join(' ');
+
   return (
     <section id="juries" className="about-section">
       <div className="about-container">
@@ -34,45 +18,56 @@ export default function JuriesSection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="section-title-huge">
-            <span className="stroke-text">GUESTS</span><br />
-            & JURIES
+            <span className="stroke-text">{firstWord}</span><br />
+            {restOfTitle}
           </h2>
-          <p className="hero-kicker" style={{ marginTop: '20px' }}>THE EXPERTS WHO WILL EVALUATE YOUR MISSION</p>
-          
-          <button 
-            className="hero-cta"
-            style={{ marginTop: '40px' }}
-            onClick={() => {}}
-          >
-            APPLY AS JURY <span className="arrow">→</span>
-          </button>
+          <p className="hero-kicker" style={{ marginTop: '20px' }}>{kicker}</p>
         </motion.div>
 
-        <div className="about-content" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
-          {juriesData.map((jury, i) => (
+        <div className="about-content" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginTop: '60px' }}>
+          {list.map((jury, idx) => (
             <motion.div 
-              key={i}
+              key={idx}
               className="about-block"
-              style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center', padding: '40px 20px' }}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
+              transition={{ delay: idx * 0.1 }}
+              whileHover={{ y: -5, boxShadow: "0 0 20px rgba(0, 240, 255, 0.1)" }}
+              style={{
+                background: 'rgba(255, 255, 255, 0.02)',
+                border: '1px solid rgba(255, 255, 255, 0.05)',
+                padding: '30px',
+                borderRadius: '4px',
+                transition: 'all 0.3s ease',
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                textAlign: 'center'
+              }}
             >
-              {jury.image ? (
-                <img 
-                  src={jury.image} 
-                  alt={jury.name} 
-                  style={{ width: '150px', height: '150px', borderRadius: '50%', marginBottom: '25px', objectFit: 'cover', border: '3px solid var(--neon-cyan)' }} 
-                />
-              ) : (
-                <div style={{ width: '150px', height: '150px', borderRadius: '50%', background: 'rgba(255,255,255,0.05)', marginBottom: '25px', display: 'flex', justifyContent: 'center', alignItems: 'center', fontSize: '2rem', color: 'rgba(255,255,255,0.2)' }}>
-                  ?
-                </div>
-              )}
-              <h3 style={{ fontSize: '1.5rem', marginBottom: '10px', color: 'var(--text-main)' }}>{jury.name}</h3>
-              <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: '8px' }}>{jury.role}</p>
-              {jury.company && <p style={{ fontSize: '0.8rem', color: 'var(--neon-cyan)', fontWeight: '700', letterSpacing: '1px' }}>{jury.company}</p>}
+              <div 
+                className="jury-avatar-placeholder" 
+                style={{ 
+                  width: '100px', 
+                  height: '100px', 
+                  borderRadius: '50%', 
+                  background: 'linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta))', 
+                  display: 'flex', 
+                  alignItems: 'center', 
+                  justifyContent: 'center',
+                  fontSize: '2rem',
+                  fontWeight: 'bold',
+                  color: '#fff',
+                  marginBottom: '20px',
+                  boxShadow: '0 0 15px rgba(0,240,255,0.3)'
+                }}
+              >
+                {jury.name.split(' ').map(n => n[0]).join('')}
+              </div>
+              <h3 style={{ fontSize: '1.2rem', color: 'var(--neon-cyan)', letterSpacing: '1px', marginBottom: '5px' }}>{jury.name}</h3>
+              <p style={{ color: 'var(--text-main)', fontSize: '0.9rem', fontWeight: '500', marginBottom: '10px' }}>{jury.title}</p>
+              <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '0.8rem', fontStyle: 'italic' }}>{jury.company}</p>
             </motion.div>
           ))}
         </div>

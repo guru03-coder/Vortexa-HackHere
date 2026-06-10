@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion';
+import { hackathonData } from '../data/hackathonData';
 
 const missions = [
   { icon: '💡', label: 'INNOVATION', desc: 'Pushing boundaries of what\'s possible' },
@@ -7,6 +8,8 @@ const missions = [
 ];
 
 export default function OrganizationSection() {
+  const organizerName = hackathonData.event.organizer || "HackHere";
+
   return (
     <section id="organization" className="about-section">
       <div className="about-container">
@@ -19,7 +22,7 @@ export default function OrganizationSection() {
         >
           <h2 className="section-title-huge">
             <span className="stroke-text">THE</span><br />
-            ORGANIZATION
+            {organizerName.toUpperCase()}
           </h2>
           <p className="hero-kicker" style={{ marginTop: '20px' }}>EMPOWERING ENTHUSIASTS TO INNOVATE AND LEAD</p>
         </motion.div>

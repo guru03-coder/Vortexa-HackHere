@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState, useEffect } from 'react';
+import { hackathonData } from '../data/hackathonData';
 
 export default function SplashScreen({ onComplete }) {
   const [progress, setProgress] = useState(0);
@@ -8,9 +9,9 @@ export default function SplashScreen({ onComplete }) {
 
   useEffect(() => {
     const texts = [
-      "CONNECTING_TO_HACKHERE_SERVERS...",
+      `CONNECTING_TO_${(hackathonData.event.organizer || "HACKHERE").toUpperCase()}_SERVERS...`,
       "BYPASSING_MAINFRAME_FIREWALLS...",
-      "DECRYPTING_VORTEX_PROTOCOL...",
+      `DECRYPTING_${(hackathonData.event.name || "VORTEXA").toUpperCase()}_PROTOCOL...`,
       "INJECTING_PAYLOAD...",
       "SYSTEM_OVERRIDE_SUCCESSFUL",
       "ACCESS_GRANTED_"
@@ -85,7 +86,7 @@ export default function SplashScreen({ onComplete }) {
             boxShadow: '4px 4px 0 var(--neon-magenta)',
             display: 'inline-block',
           }}>
-            HACKHERE.INIT
+            {(hackathonData.event.organizer || "HACKHERE").toUpperCase()}.INIT
           </div>
           <div style={{
             background: progress === 100 ? 'var(--neon-magenta)' : 'var(--neon-cyan)',
@@ -101,7 +102,7 @@ export default function SplashScreen({ onComplete }) {
             display: 'inline-block',
             transition: 'background 0.3s, box-shadow 0.3s'
           }}>
-            VORTEXA<span style={{ opacity: 0.5 }}>_</span>
+            {hackathonData.event.name}<span style={{ opacity: 0.5 }}>_</span>
           </div>
 
           <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '15px', fontSize: '1.1rem', color: '#fff', textTransform: 'uppercase', letterSpacing: '1px' }}>
@@ -138,7 +139,7 @@ export default function SplashScreen({ onComplete }) {
             display: 'flex',
             justifyContent: 'space-between'
           }}>
-            <span>[ HACKHERE PRESENTS ]</span>
+            <span>[ {(hackathonData.event.organizer || "HACKHERE").toUpperCase()} PRESENTS ]</span>
             <span>v1.0.0</span>
           </div>
         </div>

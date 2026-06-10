@@ -1,28 +1,31 @@
 import { motion } from 'framer-motion';
-
-const prizes = [
-  {
-    icon: '🏆',
-    title: 'PRIZE POOL',
-    value: '₹1,00,000',
-    color: '#FFD700',
-    isMain: true
-  },
-  {
-    icon: '💼',
-    title: 'INTERNSHIP OPPORTUNITIES',
-    value: 'Direct hiring for top teams',
-    color: '#00f0ff',
-  },
-  {
-    icon: '🎁',
-    title: 'GOODIES & MERCHANDISE',
-    value: 'Exclusive Vortexa gear for participants',
-    color: '#ec4899',
-  }
-];
+import { hackathonData } from '../data/hackathonData';
 
 export default function PrizesSection() {
+  const { prizePool, name } = hackathonData.event;
+  
+  const prizes = [
+    {
+      icon: '🏆',
+      title: 'PRIZE POOL',
+      value: prizePool,
+      color: '#FFD700',
+      isMain: true
+    },
+    {
+      icon: '💼',
+      title: 'INTERNSHIP OPPORTUNITIES',
+      value: 'Direct hiring for top teams',
+      color: '#00f0ff',
+    },
+    {
+      icon: '🎁',
+      title: 'GOODIES & MERCHANDISE',
+      value: `Exclusive ${name} gear for participants`,
+      color: '#ec4899',
+    }
+  ];
+
   return (
     <section id="prizes" className="event-section">
       <div className="event-container">

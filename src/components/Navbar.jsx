@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { hackathonData } from '../data/hackathonData';
 
 const NAV_ITEMS = [
   { label: 'Home', id: 'home' },
@@ -40,12 +41,16 @@ export default function Navbar() {
     setMobileOpen(false);
   };
 
+  const organizerName = hackathonData.event.organizer || "HackHere";
+  const orgPart1 = organizerName.slice(0, 4).toUpperCase();
+  const orgPart2 = organizerName.slice(4).toUpperCase();
+
   return (
     <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
       <div className="nav-logo" onClick={() => scrollTo('home')}>
         <img
           src="/images/hackhere-logo.jpeg"
-          alt="HackHere"
+          alt={organizerName}
           className="nav-logo-img"
           onError={(e) => {
             e.target.style.display = 'none';
@@ -53,7 +58,7 @@ export default function Navbar() {
           }}
         />
         <span className="nav-logo-fallback" style={{ display: 'none' }}>
-          HACK<span className="accent">HERE</span>
+          {orgPart1}<span className="accent">{orgPart2}</span>
         </span>
       </div>
 
