@@ -177,10 +177,10 @@ export const hackathonData = {
         image: "/images/antony.jpeg"
       },
       {
-        name: "GOKUL",
-        role: "Executive HR",
+        name: "DEEPA",
+        role: "Finance Team Lead",
         company: "Cognizant",
-        image: "/images/gokul.jpeg"
+        image: "/images/deepa.jpeg"
       },
       {
         name: "YUVA SRI",
