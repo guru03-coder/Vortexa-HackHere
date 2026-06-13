@@ -177,16 +177,16 @@ export const hackathonData = {
         image: "/images/antony.jpeg"
       },
       {
-        name: "DEEPA",
+        name: "DEEPA KIRUBAKARAN",
         role: "Finance Team Lead",
         company: "Cognizant",
         image: "/images/deepa.jpeg"
       },
       {
-        name: "YUVA SRI",
-        role: "Software developer | PWC",
-        company: "Intern | Zoho",
-        image: "/images/yuvasri.jpeg"
+        name: "SIVAPARANJOTHI T",
+        role: "Founder & CEO",
+        company: "Cristel",
+        image: "/images/sivaparanjothi.jpeg"
       }
     ]
   },
@@ -195,6 +195,20 @@ export const hackathonData = {
     title: "CORE TEAM",
     kicker: "THE ARCHITECTS OF THE VORTEX",
     list: [
+      {
+        name: "SHUBAASHREE S",
+        role: "Outreach & Content Lead",
+        photo: "/images/shubaashree.jpg.jpeg",
+        color: "#ff2244",
+        linkedin: "https://www.linkedin.com/in/shubaashreesureshbabu",
+      },
+      {
+        name: "RITHIKA S",
+        role: "Social Media & Content Lead",
+        photo: "/images/rithika.jpg.jpeg",
+        color: "#ec4899",
+        linkedin: "https://www.linkedin.com/in/rithika-somasundaram/",
+      },
       {
         name: "EZHIL KK",
         role: "Sponsor & Communication Lead",
@@ -208,20 +222,6 @@ export const hackathonData = {
         photo: "/images/guru_prakash.jpeg",
         color: "#a855f7",
         linkedin: "https://www.linkedin.com/in/k-guru-prakash-9a4184337/",
-      },
-      {
-        name: "RITHIKA S",
-        role: "Social Media & Content Lead",
-        photo: "/images/rithika.jpg.jpeg",
-        color: "#ec4899",
-        linkedin: "https://www.linkedin.com/in/rithika-somasundaram/",
-      },
-      {
-        name: "SHUBAASHREE S",
-        role: "Outreach & Content Lead",
-        photo: "/images/shubaashree.jpg.jpeg",
-        color: "#ff2244",
-        linkedin: "https://www.linkedin.com/in/shubaashreesureshbabu",
       }
     ]
   },

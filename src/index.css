@@ -683,3 +683,164 @@ body {
   animation: scanline 3s linear infinite;
   z-index: 10;
 }
+
+.team-grid-custom {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+  width: 100%;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .team-grid-custom {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Vortex circular layout styling */
+.team-vortex-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 1100px;
+  height: 850px;
+  margin: 60px auto 0 auto;
+}
+
+.vortex-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 680px;
+  height: 680px;
+  border-radius: 50%;
+  border: 1px dashed rgba(0, 240, 255, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: vortex-spin 45s linear infinite;
+  z-index: 2;
+}
+
+/* Background Orbit Rings */
+.vortex-bg-ring-1 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 530px;
+  height: 530px;
+  border-radius: 50%;
+  border: 1px dashed rgba(236, 72, 153, 0.15);
+  animation: vortex-spin-reverse 30s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.vortex-bg-ring-2 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 380px;
+  height: 380px;
+  border-radius: 50%;
+  border: 1px dotted rgba(0, 240, 255, 0.2);
+  animation: vortex-spin 20s linear infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Center core of the vortex */
+.vortex-core {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 240, 255, 0.15) 0%, rgba(236, 72, 153, 0.05) 70%);
+  border: 2px double var(--neon-cyan);
+  box-shadow: 0 0 35px rgba(0, 240, 255, 0.35), inset 0 0 25px rgba(0, 240, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  z-index: 5;
+  animation: vortex-pulse 2s ease-in-out infinite alternate;
+}
+
+.vortex-core-text {
+  font-family: 'Syncopate', sans-serif;
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: var(--neon-cyan);
+  text-shadow: 0 0 10px rgba(0, 240, 255, 0.6);
+  line-height: 1;
+}
+
+.vortex-core-subtext {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--neon-magenta);
+  text-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.vortex-member-card {
+  animation: vortex-unspin 45s linear infinite;
+}
+
+/* Pause animations on hover of wrapper */
+.team-vortex-wrapper:hover .vortex-container,
+.team-vortex-wrapper:hover .vortex-member-card,
+.team-vortex-wrapper:hover .vortex-bg-ring-1,
+.team-vortex-wrapper:hover .vortex-bg-ring-2,
+.team-vortex-wrapper:hover .vortex-core {
+  animation-play-state: paused;
+}
+
+/* Keyframe Animations */
+@keyframes vortex-spin {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+@keyframes vortex-spin-reverse {
+  from { transform: translate(-50%, -50%) rotate(360deg); }
+  to { transform: translate(-50%, -50%) rotate(0deg); }
+}
+
+@keyframes vortex-unspin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+@keyframes vortex-pulse {
+  0% { box-shadow: 0 0 20px rgba(0, 240, 255, 0.2); transform: translate(-50%, -50%) scale(1); }
+  100% { box-shadow: 0 0 35px rgba(0, 240, 255, 0.4); transform: translate(-50%, -50%) scale(1.05); }
+}
+
+/* Responsive display rules */
+@media (min-width: 768px) {
+  .team-grid-fallback {
+    display: none !important;
+  }
+  .team-vortex-wrapper {
+    display: block !important;
+  }
+}
+
+@media (max-width: 767px) {
+  .team-grid-fallback {
+    display: grid !important;
+  }
+  .team-vortex-wrapper {
+    display: none !important;
+  }
+}

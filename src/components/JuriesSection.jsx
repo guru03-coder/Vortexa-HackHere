@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { hackathonData } from '../data/hackathonData';
 
 function JuryMemberCard({ jury, idx }) {
+  const [imageError, setImageError] = useState(false);
+  const initials = jury.name.split(' ').map(n => n[0]).join('');
+
   return (
     <motion.div 
       className="about-block"
@@ -24,6 +27,44 @@ function JuryMemberCard({ jury, idx }) {
         position: 'relative'
       }}
     >
+      {/* Avatar Section */}
+      <div style={{ position: 'relative', marginBottom: '20px' }}>
+        {jury.image && !imageError ? (
+          <img 
+            src={jury.image} 
+            alt={jury.name}
+            onError={() => setImageError(true)}
+            style={{ 
+              width: '125px', 
+              height: '125px', 
+              borderRadius: '50%', 
+              objectFit: 'cover',
+              border: '2px solid var(--neon-cyan)',
+              boxShadow: '0 0 15px rgba(0,240,255,0.3)'
+            }}
+          />
+        ) : (
+          <div 
+            className="jury-avatar-placeholder" 
+            style={{ 
+              width: '125px', 
+              height: '125px', 
+              borderRadius: '50%', 
+              background: 'linear-gradient(135deg, var(--neon-cyan), var(--neon-magenta))', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center',
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              color: '#fff',
+              boxShadow: '0 0 15px rgba(0,240,255,0.3)'
+            }}
+          >
+            {initials}
+          </div>
+        )}
+      </div>
+
       <h3 style={{ fontSize: '1.2rem', color: 'var(--neon-cyan)', letterSpacing: '1px', marginBottom: '5px' }}>
         {jury.name}
       </h3>
